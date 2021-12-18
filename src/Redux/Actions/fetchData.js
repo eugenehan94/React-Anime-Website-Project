@@ -1,4 +1,4 @@
-export const fetchHero = (hero) => {
+export const fetchHeroInfo = (hero) => {
   return {
     type: "FETCH_HERO",
     payload: hero,

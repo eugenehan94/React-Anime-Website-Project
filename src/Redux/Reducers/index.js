@@ -1,5 +1,9 @@
 import { combineReducers } from "redux";
 
-const reducers = combineReducers({});
+import { fetchReducer } from "./fetchDataReducer";
+
+const reducers = combineReducers({
+  fetchReducer,
+});
 
 export default reducers;
