@@ -1,3 +1,5 @@
+import produce from "immer";
+
 const initialState = {
   heroInfo: null,
   loading: true,
@@ -6,10 +8,11 @@ const initialState = {
 export const fetchReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_HERO":
-      return {
-        heroInfo: action.payload,
-        loading: false,
-      };
+      return produce(state, (draftState) => {
+        draftState.heroInfo = action.payload;
+        draftState.loading = false;
+      });
+
     default:
       return state;
   }

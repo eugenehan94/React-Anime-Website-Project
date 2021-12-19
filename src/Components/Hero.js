@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/system";
+import { Box, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchHeroInfo } from "../Redux/Actions/fetchData";
@@ -23,25 +23,21 @@ const Hero = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <div>LOADING</div>;
+    return <div></div>;
   }
-
   return (
-    <div>
-      <Box
-        sx={{
-          position: "relative",
-        }}
-      >
-        <img
-          src={demonSlayerHeroImage}
-          alt="demon slayer poster"
-          style={{ width: "100%" }}
-        />
-        <h1>{heroInfo.title}</h1>
-        <h2>{heroInfo.synopsis}</h2>
+    <Box>
+      <img
+        src={demonSlayerHeroImage}
+        alt="demon slayer poster"
+        style={{ width: "100%", position: "relative" }}
+      />
+
+      <Box sx={{ position: "absolute", top: "10rem", left: "2rem" }}>
+        <Typography>{heroInfo.title}</Typography>
+        <Typography>{heroInfo.synopsis}</Typography>
       </Box>
-    </div>
+    </Box>
   );
 };
 
