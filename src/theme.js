@@ -6,9 +6,13 @@ const theme = createTheme({
     },
     text: {
       primary: "#ffffff",
+      secondary: "#000000",
     },
     primary: {
       main: "#1a202c",
+    },
+    secondary: {
+      main: "#ffffff",
     },
   },
   typography: {
