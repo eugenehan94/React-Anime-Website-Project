@@ -1,11 +1,24 @@
 import React from "react";
-import { Box, FormControl, Select, MenuItem } from "@mui/material";
+import { useEffect } from "react";
+import { Box, Grid, FormControl, Select, MenuItem } from "@mui/material";
+import axios from "axios";
 const DropdownBox = () => {
-  const [age, setAge] = React.useState("10");
-
+  const [age, setAge] = React.useState("airing");
+  const [data, setData] = React.useState([]);
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+
+  useEffect(() => {
+    const fetchChoice = async () => {
+      const response = await axios.get(
+        `https://api.jikan.moe/v3/top/anime/1/${age}`
+      );
+      console.log(response.data.top);
+      setData(response.data.top);
+    };
+    fetchChoice();
+  }, [age]);
 
   console.log("Age: ", age);
 
@@ -20,21 +33,46 @@ const DropdownBox = () => {
             label="Age"
             onChange={handleChange}
           >
-            <MenuItem value={10} sx={{ color: "text.secondary" }}>
+            <MenuItem value="airing" sx={{ color: "text.secondary" }}>
               Top Airing
             </MenuItem>
-            <MenuItem value={20} sx={{ color: "text.secondary" }}>
+            <MenuItem value="movie" sx={{ color: "text.secondary" }}>
               Top Movies
             </MenuItem>
-            <MenuItem value={30} sx={{ color: "text.secondary" }}>
+            <MenuItem value="tv" sx={{ color: "text.secondary" }}>
               Top TVs
             </MenuItem>
-            <MenuItem value={40} sx={{ color: "text.secondary" }}>
+            <MenuItem value="upcoming" sx={{ color: "text.secondary" }}>
               Top Upcoming
             </MenuItem>
           </Select>
         </FormControl>
       </Box>
+      <Grid container>
+        {data.map((item) => {
+          return (
+            <Grid item xs={4}>
+              <Box
+                style={{
+                  border: "1px solid red",
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <Box style={{ border: "1px solid green", width: "70%" }}>
+                  <img
+                    src={item.image_url}
+                    alt={item.title}
+                    style={{ width: "100%" }}
+                    objectFit="cover"
+                  />
+                </Box>
+                <p>{item.title}</p>
+              </Box>
+            </Grid>
+          );
+        })}
+      </Grid>
     </Box>
   );
 };
