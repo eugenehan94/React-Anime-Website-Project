@@ -1,6 +1,16 @@
 import React from "react";
 import { useEffect } from "react";
-import { Box, Grid, FormControl, Select, MenuItem } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardMedia,
+  CardContent,
+  Grid,
+  FormControl,
+  Select,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import axios from "axios";
 const DropdownBox = () => {
   const [age, setAge] = React.useState("airing");
@@ -23,9 +33,9 @@ const DropdownBox = () => {
   console.log("Age: ", age);
 
   return (
-    <Box sx={{ pt: "1rem", pb: "1rem" }}>
-      <Box sx={{ minWidth: 50 }}>
-        <FormControl fullWidth>
+    <Box sx={{ p: "1rem" }}>
+      <Box>
+        <FormControl variant="filled">
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -48,27 +58,23 @@ const DropdownBox = () => {
           </Select>
         </FormControl>
       </Box>
-      <Grid container>
+      <Typography>Anime - Top {age} </Typography>
+      <Grid container spacing={3}>
         {data.map((item) => {
           return (
-            <Grid item xs={4}>
-              <Box
-                style={{
-                  border: "1px solid red",
-                  width: "100%",
-                  height: "100%",
-                }}
-              >
-                <Box style={{ border: "1px solid green", width: "70%" }}>
-                  <img
-                    src={item.image_url}
-                    alt={item.title}
-                    style={{ width: "100%" }}
-                    objectFit="cover"
-                  />
-                </Box>
-                <p>{item.title}</p>
-              </Box>
+            <Grid item xl={2} lg={3} md={4} sm={6} xs={12} key={item.mal_id}>
+              <Card sx={{ backgroundColor: "#1a202c", height: "100%" }}>
+                <CardMedia
+                  component="img"
+                  image={item.image_url}
+                  alt={item.title}
+                  height="300"
+                  sx={{ objectFit: "fill" }}
+                />
+                <CardContent>
+                  <Typography>{item.title}</Typography>
+                </CardContent>
+              </Card>
             </Grid>
           );
         })}
