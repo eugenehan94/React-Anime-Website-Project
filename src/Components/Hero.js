@@ -8,7 +8,6 @@ import axios from "axios";
 const Hero = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
-  console.log(data.fetchReducer);
   const { loading } = data.fetchReducer;
   const { heroInfo } = data.fetchReducer;
 
@@ -30,13 +29,15 @@ const Hero = () => {
       <img
         src={demonSlayerHeroImage}
         alt="demon slayer poster"
-        style={{ width: "100%", position: "relative" }}
+        style={{ width: "100%", 
+        // position: "relative" 
+      }}
       />
 
-      <Box sx={{ position: "absolute", top: "10rem", left: "2rem" }}>
+      {/* <Box sx={{ position: "absolute", top: "10rem", left: "2rem" }}>
         <Typography>{heroInfo.title}</Typography>
         <Typography>{heroInfo.synopsis}</Typography>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

@@ -2,30 +2,17 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Box, FormControl, Select, MenuItem } from "@mui/material";
-import axios from "axios";
+import { selectedDropdown } from "../Redux/Actions/animeActions";
+
 const DropdownBox = () => {
   const datas = useSelector((state) => state);
   const dispatch = useDispatch();
-  console.log("datas: ", datas)
-  const [age, setAge] = React.useState("airing");
-  const [data, setData] = React.useState([]);
+  const { selectedChoice } = datas.animeReducer;
+  console.log("datas: ", selectedChoice);
+
   const handleChange = (event) => {
-    setAge(event.target.value);
+    dispatch(selectedDropdown(event.target.value));
   };
-
-  useEffect(() => {
-    const fetchChoice = async () => {
-      const response = await axios.get(
-        `https://api.jikan.moe/v3/top/anime/1/${age}`
-      );
-      console.log(response.data.top);
-      setData(response.data.top);
-    };
-    fetchChoice();
-  }, [age]);
-
-  console.log("Age: ", age);
-
   return (
     <Box sx={{ p: "1rem" }}>
       <Box>
@@ -33,8 +20,8 @@ const DropdownBox = () => {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={age}
-            label="Age"
+            value={selectedChoice}
+            // label="Age"
             onChange={handleChange}
           >
             <MenuItem value="airing" sx={{ color: "text.secondary" }}>

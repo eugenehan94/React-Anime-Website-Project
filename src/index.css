@@ -13,3 +13,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.movie {
+  position: relative;
+  overflow: hidden;
+  
+}
+.movie-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(100%);
+  transition: all 0.3s linear;
+}
+.movie:hover .movie-info {
+  transform: translateY(0);
+
+}
