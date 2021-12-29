@@ -8,10 +8,10 @@ const Navbar = () => {
       <AppBar position="static" elevation={0}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to="/">Home</Link>
+            <Link to="/" style={{color: "white"}}>Home</Link>
           </Typography>
           <Typography variant="h6" component="div">
-            <Link to="/manga">Manga</Link>
+            <Link to="/manga" style={{color: "white"}}>Manga</Link>
           </Typography>
         </Toolbar>
       </AppBar>

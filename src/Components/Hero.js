@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box} from "@mui/material";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchHeroInfo } from "../Redux/Actions/fetchData";
@@ -9,7 +9,7 @@ const Hero = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
   const { loading } = data.fetchReducer;
-  const { heroInfo } = data.fetchReducer;
+  // const { heroInfo } = data.fetchReducer;
 
   useEffect(() => {
     const fetchHero = async () => {
@@ -29,7 +29,7 @@ const Hero = () => {
       <img
         src={demonSlayerHeroImage}
         alt="demon slayer poster"
-        style={{ width: "100%", 
+        style={{ width: "100%" 
         // position: "relative" 
       }}
       />
