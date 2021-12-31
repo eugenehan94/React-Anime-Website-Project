@@ -7,7 +7,7 @@ const DropdownBox = () => {
   const datas = useSelector((state) => state);
   const dispatch = useDispatch();
   const { selectedChoice } = datas.animeReducer;
-  console.log("datas: ", selectedChoice);
+
 
   const handleChange = (event) => {
     dispatch(selectedDropdown(event.target.value));

@@ -11,7 +11,7 @@ const Navbar = () => {
             <Link to="/" style={{color: "white"}}>Home</Link>
           </Typography>
           <Typography variant="h6" component="div">
-            <Link to="/manga" style={{color: "white"}}>Manga</Link>
+            <Link to="/search" style={{color: "white"}}>Search</Link>
           </Typography>
         </Toolbar>
       </AppBar>

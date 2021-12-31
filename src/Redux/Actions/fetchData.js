@@ -4,3 +4,10 @@ export const fetchHeroInfo = (hero) => {
     payload: hero,
   };
 };
+
+export const searchQuery = (input) => {
+  return {
+    type: "SEARCH_QUERY",
+    payload: input
+  }
+}

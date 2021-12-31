@@ -7,14 +7,13 @@ const Content = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
   const { selectedChoice, animeList, loading } = data.animeReducer;
-  console.log("selectedChoice: ", selectedChoice);
+
 
   useEffect(() => {
     const fetchChoice = async () => {
       const response = await axios.get(
         `https://api.jikan.moe/v3/top/anime/1/${selectedChoice}`
       );
-      console.log(response.data.top);
       dispatch(selectedList(response.data.top));
     };
     fetchChoice();
