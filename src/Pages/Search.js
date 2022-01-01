@@ -2,14 +2,14 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../Components/Navbar";
 
-import {TextField} from "@mui/material"
+import { TextField } from "@mui/material";
 const Search = () => {
-  const data = useSelector((state) => state)
+  const data = useSelector((state) => state);
+
   return (
     <div>
       <Navbar />
-        <TextField />
-
+      <TextField />
     </div>
   );
 };
