@@ -3,7 +3,8 @@ import produce from "immer";
 const initialState = {
   heroInfo: null,
   loading: true,
-  query: ""
+  query: "Naruto",
+  queryResults: []
 };
 
 export const fetchReducer = (state = initialState, action) => {
@@ -13,10 +14,10 @@ export const fetchReducer = (state = initialState, action) => {
         draftState.heroInfo = action.payload;
         draftState.loading = false;
       });
-      case "SEARCH_QUERY":
-        return produce(state, (draftState) => {
-          draftState.query = action.input
-        })
+    case "SEARCH_QUERY":
+      return produce(state, (draftState) => {
+        draftState.query = action.payload;
+      });
     default:
       return state;
   }

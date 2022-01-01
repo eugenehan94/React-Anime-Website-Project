@@ -3,6 +3,7 @@ const theme = createTheme({
   palette: {
     background: {
       default: "#1a202c",
+   
     },
     text: {
       primary: "#ffffff",

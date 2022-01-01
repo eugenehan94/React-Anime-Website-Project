@@ -5,9 +5,13 @@ export const fetchHeroInfo = (hero) => {
   };
 };
 
-export const searchQuery = (input) => {
+export const searchQuery = (inputs) => {
   return {
     type: "SEARCH_QUERY",
-    payload: input
+    payload: inputs
   }
+}
+
+export const updateQuery = (inputs) => {
+  
 }
