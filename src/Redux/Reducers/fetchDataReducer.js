@@ -4,7 +4,7 @@ const initialState = {
   heroInfo: null,
   loading: true,
   query: "Naruto",
-  queryResults: []
+  queryResults: [],
 };
 
 export const fetchReducer = (state = initialState, action) => {
@@ -17,6 +17,10 @@ export const fetchReducer = (state = initialState, action) => {
     case "SEARCH_QUERY":
       return produce(state, (draftState) => {
         draftState.query = action.payload;
+      });
+    case "QUERY_RESULTS_UPDATE":
+      return produce(state, (draftState) => {
+        draftState.queryResults = action.payload;
       });
     default:
       return state;

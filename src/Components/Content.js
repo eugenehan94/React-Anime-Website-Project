@@ -19,13 +19,14 @@ const Content = () => {
     fetchChoice();
   }, [selectedChoice, dispatch]);
 
-  if (loading) {
-    return <>Loading</>;
-  }
+  
 
+  if (loading) {
+    return <></>;
+  }
   return (
     <Box sx={{ p: "1rem" }}>
-      <Typography sx={{ mb: "1rem" }}>Anime - Top {selectedChoice}</Typography>
+      <Typography variant="h3" sx={{ paddingBottom: "2rem"}}>Anime - Top {selectedChoice}</Typography>
       <Grid container spacing={6}>
         {animeList.map((item) => {
           return (

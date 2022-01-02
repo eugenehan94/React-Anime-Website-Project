@@ -12,6 +12,9 @@ export const searchQuery = (inputs) => {
   }
 }
 
-export const updateQuery = (inputs) => {
-  
+export const queryResultsUpdate = (inputs) => {
+  return {
+    type: "QUERY_RESULTS_UPDATE",
+    payload: inputs
+  }
 }
