@@ -1,3 +1,8 @@
+# Github link: https://eugenehan94.github.io/React-Anime-Website-Project/
+
+
+
+-------------------------------------------------------------------------------------------------------------
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
