@@ -17,7 +17,13 @@ const DropdownBox = () => {
   }
 
   return (
-    <Box sx={{ p: "1rem" }}>
+    <Box
+      sx={{
+        p: "1rem",
+        display: "flex",
+        justifyContent: { xs: "center", sm: "flex-start"},
+      }}
+    >
       <Box>
         <FormControl variant="filled">
           <Select

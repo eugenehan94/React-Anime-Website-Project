@@ -1,30 +1,23 @@
 import React from "react";
-import { useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import Navbar from "../Components/Navbar";
 import {
   Box,
-
   Card,
   CardActionArea,
   CardMedia,
   Grid,
-
   Typography,
 } from "@mui/material";
-
+import ScrollToTop from "../Components/ScrollToTop";
 import SearchBar from "../Components/SearchBar";
-
 const Search = () => {
   const data = useSelector((state) => state);
-  const { queryResults} = data.fetchReducer;
-
-
-
+  const { queryResults } = data.fetchReducer;
   return (
     <div>
       <Navbar />
-      <SearchBar/>
-
+      <SearchBar />
       <Box sx={{ p: "1rem" }}>
         <Grid container spacing={6}>
           {queryResults.map((result) => {
@@ -97,6 +90,7 @@ const Search = () => {
           })}
         </Grid>
       </Box>
+      <ScrollToTop />
     </div>
   );
 };

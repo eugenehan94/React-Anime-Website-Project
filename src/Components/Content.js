@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Box, Card,CardActionArea, CardMedia, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardActionArea,
+  CardMedia,
+  Grid,
+  Typography,
+} from "@mui/material";
 import { selectedList } from "../Redux/Actions/animeActions";
 import axios from "axios";
 const Content = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
   const { selectedChoice, animeList, loading } = data.animeReducer;
-
 
   useEffect(() => {
     const fetchChoice = async () => {
@@ -19,14 +25,18 @@ const Content = () => {
     fetchChoice();
   }, [selectedChoice, dispatch]);
 
-  
-
   if (loading) {
     return <></>;
   }
   return (
     <Box sx={{ p: "1rem" }}>
-      <Typography variant="h3" sx={{ paddingBottom: "2rem"}}>Anime - Top {selectedChoice}</Typography>
+      <Typography
+        variant="h3"
+        align="center"
+        sx={{ paddingBottom: "2rem"  }}
+      >
+        Anime - Top {selectedChoice}
+      </Typography>
       <Grid container spacing={6}>
         {animeList.map((item) => {
           return (
@@ -38,7 +48,11 @@ const Content = () => {
                   cursor: "pointer",
                 }}
               >
-                <CardActionArea href={item.url} target="_blank" rel="noreferrer">
+                <CardActionArea
+                  href={item.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <div className="movie">
                     <CardMedia
                       component="img"

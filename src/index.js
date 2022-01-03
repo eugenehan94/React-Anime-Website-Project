@@ -8,18 +8,18 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Provider store={store}>
           <App />
         </Provider>
       </ThemeProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
