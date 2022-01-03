@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/React-Anime-Website-Project/static/css/main.bef3d202.chunk.css",
+    "main.js": "/React-Anime-Website-Project/static/js/main.39e59d06.chunk.js",
+    "main.js.map": "/React-Anime-Website-Project/static/js/main.39e59d06.chunk.js.map",
+    "runtime-main.js": "/React-Anime-Website-Project/static/js/runtime-main.ac8f58d2.js",
+    "runtime-main.js.map": "/React-Anime-Website-Project/static/js/runtime-main.ac8f58d2.js.map",
+    "static/js/2.22c49da1.chunk.js": "/React-Anime-Website-Project/static/js/2.22c49da1.chunk.js",
+    "static/js/2.22c49da1.chunk.js.map": "/React-Anime-Website-Project/static/js/2.22c49da1.chunk.js.map",
+    "static/js/3.b53e4c1a.chunk.js": "/React-Anime-Website-Project/static/js/3.b53e4c1a.chunk.js",
+    "static/js/3.b53e4c1a.chunk.js.map": "/React-Anime-Website-Project/static/js/3.b53e4c1a.chunk.js.map",
+    "index.html": "/React-Anime-Website-Project/index.html",
+    "static/css/main.bef3d202.chunk.css.map": "/React-Anime-Website-Project/static/css/main.bef3d202.chunk.css.map",
+    "static/js/2.22c49da1.chunk.js.LICENSE.txt": "/React-Anime-Website-Project/static/js/2.22c49da1.chunk.js.LICENSE.txt",
+    "static/media/demonSlayerHeroImage.4d325d53.jpg": "/React-Anime-Website-Project/static/media/demonSlayerHeroImage.4d325d53.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ac8f58d2.js",
+    "static/js/2.22c49da1.chunk.js",
+    "static/css/main.bef3d202.chunk.css",
+    "static/js/main.39e59d06.chunk.js"
+  ]
+}
