@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/React-Anime-Website-Project/static/css/main.bef3d202.chunk.css",
-    "main.js": "/React-Anime-Website-Project/static/js/main.b48ed7e4.chunk.js",
-    "main.js.map": "/React-Anime-Website-Project/static/js/main.b48ed7e4.chunk.js.map",
-    "runtime-main.js": "/React-Anime-Website-Project/static/js/runtime-main.3c553bb3.js",
-    "runtime-main.js.map": "/React-Anime-Website-Project/static/js/runtime-main.3c553bb3.js.map",
-    "static/js/2.070c16f7.chunk.js": "/React-Anime-Website-Project/static/js/2.070c16f7.chunk.js",
-    "static/js/2.070c16f7.chunk.js.map": "/React-Anime-Website-Project/static/js/2.070c16f7.chunk.js.map",
-    "static/js/3.d47c2685.chunk.js": "/React-Anime-Website-Project/static/js/3.d47c2685.chunk.js",
-    "static/js/3.d47c2685.chunk.js.map": "/React-Anime-Website-Project/static/js/3.d47c2685.chunk.js.map",
+    "main.js": "/React-Anime-Website-Project/static/js/main.a4d4b730.chunk.js",
+    "main.js.map": "/React-Anime-Website-Project/static/js/main.a4d4b730.chunk.js.map",
+    "runtime-main.js": "/React-Anime-Website-Project/static/js/runtime-main.58d1b466.js",
+    "runtime-main.js.map": "/React-Anime-Website-Project/static/js/runtime-main.58d1b466.js.map",
+    "static/js/2.840196bc.chunk.js": "/React-Anime-Website-Project/static/js/2.840196bc.chunk.js",
+    "static/js/2.840196bc.chunk.js.map": "/React-Anime-Website-Project/static/js/2.840196bc.chunk.js.map",
+    "static/js/3.32f2b432.chunk.js": "/React-Anime-Website-Project/static/js/3.32f2b432.chunk.js",
+    "static/js/3.32f2b432.chunk.js.map": "/React-Anime-Website-Project/static/js/3.32f2b432.chunk.js.map",
     "index.html": "/React-Anime-Website-Project/index.html",
     "static/css/main.bef3d202.chunk.css.map": "/React-Anime-Website-Project/static/css/main.bef3d202.chunk.css.map",
-    "static/js/2.070c16f7.chunk.js.LICENSE.txt": "/React-Anime-Website-Project/static/js/2.070c16f7.chunk.js.LICENSE.txt",
+    "static/js/2.840196bc.chunk.js.LICENSE.txt": "/React-Anime-Website-Project/static/js/2.840196bc.chunk.js.LICENSE.txt",
     "static/media/demonSlayerHeroImage.4d325d53.jpg": "/React-Anime-Website-Project/static/media/demonSlayerHeroImage.4d325d53.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.3c553bb3.js",
-    "static/js/2.070c16f7.chunk.js",
+    "static/js/runtime-main.58d1b466.js",
+    "static/js/2.840196bc.chunk.js",
     "static/css/main.bef3d202.chunk.css",
-    "static/js/main.b48ed7e4.chunk.js"
+    "static/js/main.a4d4b730.chunk.js"
   ]
 }
