@@ -2,15 +2,16 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Box, Button, InputAdornment, TextField, Typography } from "@mui/material";
 import { searchQuery, queryResultsUpdate } from "../Redux/Actions/fetchData";
+import SwitchTo from "../Components/SwitchTo";
 import axios from "axios"
 const SearchBar = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { query } = data.fetchReducer;
+  const { query, typeSelection } = data.fetchReducer;
 
   const fetchQuery = async () => {
     const response = await axios.get(
-      `https://api.jikan.moe/v3/search/anime?q=${query}&limit=50`
+      `https://api.jikan.moe/v3/search/${typeSelection}?q=${query}&limit=50`
     );
     dispatch(queryResultsUpdate(response.data.results));
   };
@@ -28,8 +29,9 @@ const SearchBar = () => {
   return (
     <div>
       <Typography variant="h3" align="center" sx={{ paddingTop: "1rem" }}>
-        Search Anime
+        Search Anime/ Manga
       </Typography>
+      <SwitchTo />
       <Box
         sx={{
           p: "1rem",

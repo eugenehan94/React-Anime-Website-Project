@@ -18,3 +18,10 @@ export const queryResultsUpdate = (inputs) => {
     payload: inputs
   }
 }
+
+export const queryTypeSelection = (selection) => {
+  return {
+    type: "QUERY_TYPE_SELECTION",
+    payload: selection
+  }
+}

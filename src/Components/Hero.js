@@ -29,15 +29,8 @@ const Hero = () => {
       <img
         src={demonSlayerHeroImage}
         alt="demon slayer poster"
-        style={{ width: "100%" 
-        // position: "relative" 
-      }}
+        style={{ width: "100%", height: "35rem"}}
       />
-
-      {/* <Box sx={{ position: "absolute", top: "10rem", left: "2rem" }}>
-        <Typography>{heroInfo.title}</Typography>
-        <Typography>{heroInfo.synopsis}</Typography>
-      </Box> */}
     </Box>
   );
 };

@@ -5,6 +5,7 @@ const initialState = {
   loading: true,
   query: "Naruto",
   queryResults: [],
+  typeSelection: "anime",
 };
 
 export const fetchReducer = (state = initialState, action) => {
@@ -21,6 +22,10 @@ export const fetchReducer = (state = initialState, action) => {
     case "QUERY_RESULTS_UPDATE":
       return produce(state, (draftState) => {
         draftState.queryResults = action.payload;
+      });
+    case "QUERY_TYPE_SELECTION":
+      return produce(state, (draftState) => {
+        draftState.typeSelection = action.payload;
       });
     default:
       return state;
