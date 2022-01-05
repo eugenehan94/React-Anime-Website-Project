@@ -44,6 +44,7 @@ const SearchContent = () => {
                     <div className="movie-info">
                       <Typography gutterBottom>{result.title}</Typography>
                       <Typography>Type: {result.type}</Typography>
+                      <Typography>{result.rated && <>{result.rated}</>}</Typography>
                       <Typography gutterBottom>
                         Score:
                         {result.score === 0 ? (

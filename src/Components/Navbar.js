@@ -13,6 +13,11 @@ const Navbar = () => {
             </Link>
           </Typography>
           <Typography variant="h6" component="div">
+            <Link to="/manga" style={{ color: "white" }}>
+              Manga
+            </Link>
+          </Typography>
+          <Typography variant="h6" component="div">
             <Link to="/search" style={{ color: "white" }}>
               Search
             </Link>
