@@ -1,23 +1,24 @@
 {
   "files": {
     "main.css": "/React-Anime-Website-Project/static/css/main.bef3d202.chunk.css",
-    "main.js": "/React-Anime-Website-Project/static/js/main.1ac544fb.chunk.js",
-    "main.js.map": "/React-Anime-Website-Project/static/js/main.1ac544fb.chunk.js.map",
+    "main.js": "/React-Anime-Website-Project/static/js/main.773ce3c0.chunk.js",
+    "main.js.map": "/React-Anime-Website-Project/static/js/main.773ce3c0.chunk.js.map",
     "runtime-main.js": "/React-Anime-Website-Project/static/js/runtime-main.58d1b466.js",
     "runtime-main.js.map": "/React-Anime-Website-Project/static/js/runtime-main.58d1b466.js.map",
-    "static/js/2.840196bc.chunk.js": "/React-Anime-Website-Project/static/js/2.840196bc.chunk.js",
-    "static/js/2.840196bc.chunk.js.map": "/React-Anime-Website-Project/static/js/2.840196bc.chunk.js.map",
+    "static/js/2.2c3b30ed.chunk.js": "/React-Anime-Website-Project/static/js/2.2c3b30ed.chunk.js",
+    "static/js/2.2c3b30ed.chunk.js.map": "/React-Anime-Website-Project/static/js/2.2c3b30ed.chunk.js.map",
     "static/js/3.32f2b432.chunk.js": "/React-Anime-Website-Project/static/js/3.32f2b432.chunk.js",
     "static/js/3.32f2b432.chunk.js.map": "/React-Anime-Website-Project/static/js/3.32f2b432.chunk.js.map",
     "index.html": "/React-Anime-Website-Project/index.html",
     "static/css/main.bef3d202.chunk.css.map": "/React-Anime-Website-Project/static/css/main.bef3d202.chunk.css.map",
-    "static/js/2.840196bc.chunk.js.LICENSE.txt": "/React-Anime-Website-Project/static/js/2.840196bc.chunk.js.LICENSE.txt",
-    "static/media/demonSlayerHeroImage.4d325d53.jpg": "/React-Anime-Website-Project/static/media/demonSlayerHeroImage.4d325d53.jpg"
+    "static/js/2.2c3b30ed.chunk.js.LICENSE.txt": "/React-Anime-Website-Project/static/js/2.2c3b30ed.chunk.js.LICENSE.txt",
+    "static/media/demonSlayerHeroImage2.529ec057.jpg": "/React-Anime-Website-Project/static/media/demonSlayerHeroImage2.529ec057.jpg",
+    "static/media/soloLevelingHeroImage.f90eb293.jpg": "/React-Anime-Website-Project/static/media/soloLevelingHeroImage.f90eb293.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.58d1b466.js",
-    "static/js/2.840196bc.chunk.js",
+    "static/js/2.2c3b30ed.chunk.js",
     "static/css/main.bef3d202.chunk.css",
-    "static/js/main.1ac544fb.chunk.js"
+    "static/js/main.773ce3c0.chunk.js"
   ]
 }
