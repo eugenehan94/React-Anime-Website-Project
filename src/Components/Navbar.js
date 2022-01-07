@@ -12,7 +12,13 @@ const Navbar = () => {
               AniMan
             </Link>
           </Typography>
-          <Typography variant="h6" component="div">
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              paddingRight: {xs: 0, sm: 3}, 
+              flexGrow: { xs: 1, sm: 0 } }}
+          >
             <Link to="/manga" style={{ color: "white" }}>
               Manga
             </Link>

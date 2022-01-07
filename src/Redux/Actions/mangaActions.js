@@ -4,3 +4,10 @@ export const selectedDropdown = (selected) => {
         payload: selected
     }
 }
+
+export const selectedList = (list) => {
+  return {
+    type: "SELECTED_CATEGORY_LIST",
+    payload: list,
+  };
+};

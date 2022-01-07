@@ -7,7 +7,7 @@ const MangaHero = () => {
           <img
             src={soloLevelingImage}
             alt="solo leveling"
-            style={{ width: "100%", height: "35rem" }}
+            style={{ width: "100%", height: "30rem" }}
           />
         </Box>
     );

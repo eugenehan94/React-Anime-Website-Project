@@ -6,15 +6,20 @@ const MangaDropdownBox = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
   const { selectedChoice } = data.mangaReducer;
-  console.log("DATA: ", data, selectedChoice);
 
   const handleChange = (event) => {
     dispatch(selectedDropdown(event.target.value));
   };
 
   return (
-    <div>
-      <Box>
+ 
+      <Box
+        sx={{
+          p: "1rem",
+          display: "flex",
+          justifyContent: { xs: "center", sm: "flex-start" },
+        }}
+      >
         <FormControl variant="filled">
           <Select
             labelId="demo-simple-select-label"
@@ -56,7 +61,7 @@ const MangaDropdownBox = () => {
           </Select>
         </FormControl>
       </Box>
-    </div>
+
   );
 };
 

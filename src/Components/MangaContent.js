@@ -8,17 +8,17 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { selectedList } from "../Redux/Actions/animeActions";
+import { selectedList } from "../Redux/Actions/mangaActions";
 import axios from "axios";
 const MangaContent = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { selectedChoice, animeList, loading } = data.animeReducer;
+  const { selectedChoice, mangaList, loading } = data.mangaReducer;
 
   useEffect(() => {
     const fetchChoice = async () => {
       const response = await axios.get(
-        `https://api.jikan.moe/v3/top/anime/1/${selectedChoice}`
+        `https://api.jikan.moe/v3/top/manga/1/${selectedChoice}`
       );
       dispatch(selectedList(response.data.top));
     };
@@ -31,10 +31,10 @@ const MangaContent = () => {
   return (
     <Box sx={{ p: "1rem" }}>
       <Typography variant="h3" align="center" sx={{ paddingBottom: "2rem" }}>
-        Anime - Top {selectedChoice}
+        Manga - Top {selectedChoice}
       </Typography>
       <Grid container spacing={6}>
-        {animeList.map((item) => {
+        {mangaList.map((item) => {
           return (
             <Grid item xl={2} lg={3} md={4} sm={6} xs={12} key={item.mal_id}>
               <Card
@@ -62,26 +62,18 @@ const MangaContent = () => {
                     />
                     <div className="movie-info">
                       <Typography gutterBottom>{item.title}</Typography>
-                      <Typography>Rank: {item.rank}</Typography>
+                      <Typography>{item.rank && <>Rank: {item.rank}</>}</Typography>
                       <Typography gutterBottom>
-                        Score:
-                        {item.score === 0 ? " N/A" : <> {item.score}/10 ✩</>}
+                        {item.score && <> Score: {item.score}/10 ✩</>}
                       </Typography>
                       <Typography>
-                        Start Date:{" "}
-                        {item.start_date === null ? (
-                          " Unknown"
-                        ) : (
-                          <>{item.start_date}</>
-                        )}
+                        {item.start_date && <>Start date: {item.start_date}</>}
                       </Typography>
                       <Typography>
-                        Episodes:{" "}
-                        {item.episodes === null ? (
-                          " Unknown"
-                        ) : (
-                          <>{item.episodes}</>
-                        )}
+                        {item.end_date && <>End date: {item.end_date}</>}
+                      </Typography>
+                      <Typography>
+                        {item.volumes && <>Volume(s): {item.volumes}</>}
                       </Typography>
                     </div>
                   </div>
