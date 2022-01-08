@@ -1,6 +1,5 @@
 import React from "react";
 import { Box } from "@mui/material";
-
 import demonSlayerHeroImage from "../Images/demonSlayerHeroImage.jpg";
 
 const Hero = () => {
@@ -9,7 +8,7 @@ const Hero = () => {
       <img
         src={demonSlayerHeroImage}
         alt="demon slayer poster"
-        style={{ width: "100%", height: "30rem" }}
+        style={{ width: "100%" }}
       />
     </Box>
   );

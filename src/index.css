@@ -35,6 +35,9 @@ a {
   transform: translateY(0);
 
 }
+.home-link {
+  color: #FF0000
+}
 
 @media screen and (max-width: 600px){
   .movie-info {

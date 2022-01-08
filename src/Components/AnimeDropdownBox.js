@@ -19,7 +19,6 @@ const DropdownBox = () => {
   return (
     <Box
       sx={{
-        p: "1rem",
         display: "flex",
         justifyContent: { xs: "center", sm: "flex-start"},
       }}

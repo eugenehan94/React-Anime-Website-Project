@@ -11,9 +11,8 @@ import {
 const SearchContent = () => {
   const data = useSelector((state) => state);
   const { queryResults } = data.fetchReducer;
-  console.log("QUERYRESULTS: ", queryResults);
   return (
-    <Box sx={{ p: "1rem" }}>
+    <Box>
       <Grid container spacing={6}>
         {queryResults.map((result) => {
           return (

@@ -29,11 +29,11 @@ const Content = () => {
     return <></>;
   }
   return (
-    <Box sx={{ p: "1rem" }}>
+    <Box>
       <Typography
         variant="h3"
         align="center"
-        sx={{ paddingBottom: "2rem"  }}
+        sx={{ paddingBottom: "2rem", paddingTop: {xs: "1.5rem", lg: "0rem"}  }}
       >
         Anime - Top {selectedChoice}
       </Typography>
