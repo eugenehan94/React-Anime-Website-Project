@@ -4,6 +4,7 @@ import Footer from "../Footer";
 
 test("Footer text present", () => {
   render(<Footer />);
-  // const text = screen.getByRole("heading", {name: "Developer"});
+  screen.debug();
+  // const text = screen.getByRole("heading", { name: /hello world/i });
   // expect(text).toBeInTheDocument;
 });
