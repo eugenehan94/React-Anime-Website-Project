@@ -1,4 +1,9 @@
 import produce from "immer";
+import {
+  SEARCH_QUERY,
+  QUERY_RESULTS_UPDATE,
+  QUERY_TYPE_SELECTION,
+} from "../../__helper/constants";
 
 const initialState = {
   heroInfo: null,
@@ -10,20 +15,15 @@ const initialState = {
 
 export const fetchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_HERO":
-      return produce(state, (draftState) => {
-        draftState.heroInfo = action.payload;
-        draftState.loading = false;
-      });
-    case "SEARCH_QUERY":
+    case SEARCH_QUERY:
       return produce(state, (draftState) => {
         draftState.query = action.payload;
       });
-    case "QUERY_RESULTS_UPDATE":
+    case QUERY_RESULTS_UPDATE:
       return produce(state, (draftState) => {
         draftState.queryResults = action.payload;
       });
-    case "QUERY_TYPE_SELECTION":
+    case QUERY_TYPE_SELECTION:
       return produce(state, (draftState) => {
         draftState.typeSelection = action.payload;
       });
