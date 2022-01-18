@@ -6,8 +6,9 @@ import {
 
 import {createAction} from "@reduxjs/toolkit"
 
-// Synchronous action creator test
-describe ("Synchronous test for action creator", () => {
+// Synchronous action creator test - two methods to perform test
+// One with createAction and one without
+describe ("Synchronous test for action creator - animeActions", () => {
     it("testing if selectedDropdown action is called", () => {
         const data = { selectedChoice: "Manga"};
         const expectedAction = { type: SELECTED_CATEGORY, payload: {selectedChoice: "Manga"} };
