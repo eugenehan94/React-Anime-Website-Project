@@ -10,6 +10,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/manga" element={<Manga/>} />
+        {/* Integrate a page not found */}
       </Routes>
     </div>
   );

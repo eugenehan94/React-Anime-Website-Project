@@ -4,7 +4,10 @@ import userEvent from "@testing-library/user-event";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import Navbar from "../Navbar";
-import { MemoryRouter } from "react-router-dom";
+import AnimeContent from "../AnimeContent";
+import { MemoryRouter, BrowserRouter } from "react-router-dom";
+import { getByTestId } from "@testing-library/react";
+
 
 const renderWithRouter = (ui, { route = "/" } = {}) => {
   window.history.pushState({}, "Test page", route);
@@ -27,11 +30,14 @@ describe("Navbar links present", () => {
 });
 
 test("full app rendering/navigating", () => {
-  const history = createMemoryHistory();
-  render(
-    <Router history={history}>
-      <Navbar/>
-    </Router>
-  );
+  // renderWithRouter(<Navbar />);
+  render(<AnimeContent />);
+  // expect(screen.getByText(/animan/i)).toBeInTheDocument();
+  // expect(screen.getByTestId(/animeContentHeading/i));
+  const test = screen.getByTestId("animeContentHeading");
+  console.log(test)
+  // const leftClick = { button: 0 };
+  // userEvent.click(screen.getByText(/manga/i), leftClick);
 
+  // expect(screen.getByText(/you are on the about page/i)).toBeInTheDocument();
 });

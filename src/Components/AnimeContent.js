@@ -34,6 +34,7 @@ const Content = () => {
         variant="h3"
         align="center"
         sx={{ paddingBottom: "2rem", paddingTop: {xs: "1.5rem", lg: "0rem"}  }}
+        data-testid="animeContentHeading"
       >
         Anime - Top {selectedChoice}
       </Typography>
