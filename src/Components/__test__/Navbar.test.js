@@ -36,8 +36,6 @@ test("full app rendering/navigating", () => {
   // expect(screen.getByTestId(/animeContentHeading/i));
   const test = screen.getByTestId("animeContentHeading");
   console.log(test)
-  // const leftClick = { button: 0 };
-  // userEvent.click(screen.getByText(/manga/i), leftClick);
 
-  // expect(screen.getByText(/you are on the about page/i)).toBeInTheDocument();
+
 });
