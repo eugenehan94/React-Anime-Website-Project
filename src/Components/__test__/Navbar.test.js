@@ -32,10 +32,6 @@ describe("Navbar links present", () => {
 test("full app rendering/navigating", () => {
   // renderWithRouter(<Navbar />);
   render(<AnimeContent />);
-  // expect(screen.getByText(/animan/i)).toBeInTheDocument();
-  // expect(screen.getByTestId(/animeContentHeading/i));
   const test = screen.getByTestId("animeContentHeading");
   console.log(test)
-
-
 });
