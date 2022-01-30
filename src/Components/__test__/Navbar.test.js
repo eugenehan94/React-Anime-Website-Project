@@ -1,12 +1,9 @@
 import React from "react";
 import { render, screen } from "./test-utils";
-import userEvent from "@testing-library/user-event";
-import { createMemoryHistory } from "history";
-import { Router } from "react-router-dom";
 import Navbar from "../Navbar";
 import AnimeContent from "../AnimeContent";
 import { MemoryRouter, BrowserRouter } from "react-router-dom";
-import { getByTestId } from "@testing-library/react";
+
 
 
 const renderWithRouter = (ui, { route = "/" } = {}) => {
