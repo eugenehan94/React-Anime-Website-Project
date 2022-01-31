@@ -1,15 +1,7 @@
 import React from "react";
 import { render, screen } from "./test-utils";
 import Navbar from "../Navbar";
-import AnimeContent from "../AnimeContent";
-import { MemoryRouter, BrowserRouter } from "react-router-dom";
-
-
-
-const renderWithRouter = (ui, { route = "/" } = {}) => {
-  window.history.pushState({}, "Test page", route);
-  return render(ui, { wrapper: BrowserRouter });
-};
+import { MemoryRouter } from "react-router-dom";
 
 describe("Navbar links present", () => {
   it("Home button AniMan is present", () => {
@@ -26,9 +18,3 @@ describe("Navbar links present", () => {
   })
 });
 
-test("full app rendering/navigating", () => {
-  // renderWithRouter(<Navbar />);
-  render(<AnimeContent />);
-  const test = screen.getByTestId("animeContentHeading");
-  console.log(test)
-});
