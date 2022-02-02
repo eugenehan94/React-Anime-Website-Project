@@ -4,9 +4,11 @@ import Navbar from "../Components/Navbar";
 import ScrollToTop from "../Components/ScrollToTop";
 import SearchBar from "../Components/SearchBar";
 import SearchContent from "../Components/SearchContent"
-
+import Footer from "../Components/Footer"
+import { useSelector } from "react-redux";
 const Search = () => {
-
+  const data = useSelector((state) => state);
+  const { loading } = data.searchReducer;
   return (
     <div>
       <Navbar />
@@ -21,6 +23,7 @@ const Search = () => {
       >
         <SearchContent />
       </Box>
+      {loading ? <></> : <Footer/>}
       <ScrollToTop />
     </div>
   );

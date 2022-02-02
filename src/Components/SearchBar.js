@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Box, Button, InputAdornment, TextField, Typography } from "@mui/material";
 import { searchQuery, queryResultsUpdate } from "../Redux/Actions/fetchData";
+import { searchLoader } from "../Redux/Actions/searchAction";
 import SwitchTo from "../Components/SwitchTo";
 import axios from "axios"
 const SearchBar = () => {
@@ -14,6 +15,7 @@ const SearchBar = () => {
       `https://api.jikan.moe/v3/search/${typeSelection}?q=${query}&limit=50`
     );
     dispatch(queryResultsUpdate(response.data.results));
+    dispatch(searchLoader(false))
   };
 
   const handleSubmit = (event) => {

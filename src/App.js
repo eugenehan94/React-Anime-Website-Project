@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Search from "./Pages/Search"
 import Manga from "./Pages/Manga"
+import Error from "./Pages/Error"
 function App() {
   return (
     <div>
@@ -10,7 +11,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/manga" element={<Manga/>} />
-        {/* Integrate a page not found */}
+        <Route path="*" element={<Error/>}/>
       </Routes>
     </div>
   );

@@ -10,3 +10,6 @@ export const QUERY_TYPE_SELECTION = "QUERY_TYPE_SELECTION";
 // for mangaActions & mangaReducer
 export const MANGA_SELECTED_CATEGORY = "MANGA_SELECTED_CATEGORY";
 export const SELECTED_CATEGORY_LIST_MANGA = "SELECTED_CATEGORY_LIST";
+
+// for the searchAction & searchReducer
+export const SEARCH_LOADER = "SEARCH_LOADER"

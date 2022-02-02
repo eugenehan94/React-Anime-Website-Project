@@ -1,13 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Box, Typography, Link } from "@mui/material";
 const Footer = () => {
-  const data = useSelector((state) => state);
-  const { loading } = data.animeReducer;
-
-  if (loading) {
-    return <></>;
-  }
 
   return (
     <Box

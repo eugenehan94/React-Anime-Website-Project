@@ -6,7 +6,13 @@ import DropdownBox from "../Components/AnimeDropdownBox";
 import Content from "../Components/AnimeContent";
 import ScrollToTop from "../Components/ScrollToTop";
 import Footer from "../Components/Footer";
+
+import { useSelector } from "react-redux";
+
 const Home = () => {
+  const data = useSelector((state) => state);
+  const { loading } = data.animeReducer;
+
   return (
     <div>
       <Navbar />
@@ -22,7 +28,7 @@ const Home = () => {
         <DropdownBox />
         <Content />
       </Box>
-      <Footer />
+      {loading ? <></> : <Footer />}
       <ScrollToTop />
     </div>
   );
