@@ -1,4 +1,19 @@
-# Github link: https://eugenehan94.github.io/React-Anime-Website-Project/
+# React Anime Website
+## Link to live version:
+https://eugenehan94.github.io/React-Anime-Website-Project/
+
+# Demo
+## 1
+![Anime1Gif](https://user-images.githubusercontent.com/59939048/168453627-3d9c50dd-e920-458c-baee-969296bbf72a.gif)
+
+## 2
+![Anime2Gif](https://user-images.githubusercontent.com/59939048/168453629-771e0ee5-7da8-4c81-9a42-db5e6264b3e5.gif)
+
+## 3
+![Anime3Gif](https://user-images.githubusercontent.com/59939048/168453635-ad907ff7-e8a1-46e0-970a-92be92eb8902.gif)
+
+## 4
+![Anime4Gif](https://user-images.githubusercontent.com/59939048/168453638-4abe03b7-717a-4d0b-977c-db8d00e9a331.gif)
 
 
 
