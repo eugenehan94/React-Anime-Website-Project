@@ -6,13 +6,13 @@ import { selectedDropdown } from "../Redux/Actions/animeActions";
 const DropdownBox = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { selectedChoice, loading } = data.animeReducer;
+  const { animeSelectedCategory, animeIsLoading } = data.animeReducer;
 
   const handleChange = (event) => {
     dispatch(selectedDropdown(event.target.value));
   };
 
-  if (loading) {
+  if (animeIsLoading) {
     return <></>;
   }
 
@@ -28,7 +28,7 @@ const DropdownBox = () => {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={selectedChoice}
+            value={animeSelectedCategory}
             // label="Age"
             onChange={handleChange}
             sx={{

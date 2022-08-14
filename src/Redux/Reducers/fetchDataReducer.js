@@ -4,17 +4,11 @@ import {
   QUERY_RESULTS_UPDATE,
   QUERY_TYPE_SELECTION,
 } from "../../__helper/constants";
+import { defaultState } from "./defaultState";
 
-const initialState = {
-  heroInfo: null,
-  loading: true,
-  query: "Naruto",
-  queryResults: [],
-  typeSelection: "anime",
-};
-
-export const fetchReducer = (state = initialState, action) => {
+export const fetchDataReducer = (state = defaultState, action) => {
   switch (action.type) {
+    // TODO: See whether we can remove this case
     case SEARCH_QUERY:
       return produce(state, (draftState) => {
         draftState.query = action.payload;

@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 const SearchContent = () => {
   const data = useSelector((state) => state);
-  const { queryResults } = data.fetchReducer;
+  const { queryResults } = data.fetchDataReducer;
   return (
     <Box>
       <Grid container spacing={6}>

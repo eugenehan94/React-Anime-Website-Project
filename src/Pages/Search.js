@@ -1,29 +1,37 @@
 import React from "react";
 import { Box } from "@mui/material";
+import Loader from "../Components/Loader";
 import Navbar from "../Components/Navbar";
 import ScrollToTop from "../Components/ScrollToTop";
 import SearchBar from "../Components/SearchBar";
-import SearchContent from "../Components/SearchContent"
-import Footer from "../Components/Footer"
+import SearchContent from "../Components/SearchContent";
+import Footer from "../Components/Footer";
 import { useSelector } from "react-redux";
 const Search = () => {
   const data = useSelector((state) => state);
-  const { loading } = data.searchReducer;
+  const { searchIsLoading, searchedData, searchPending } = data.searchReducer;
   return (
     <div>
       <Navbar />
       <SearchBar />
-      <Box
-        sx={{
-          paddingLeft: { xs: "1rem", sm: "4rem" },
-          paddingRight: { xs: "1rem", sm: "4rem" },
-          paddingTop: "2rem",
-          paddingBottom: "2rem",
-        }}
-      >
-        <SearchContent />
-      </Box>
-      {loading ? <></> : <Footer/>}
+      {/* {searchPending ? <Loader/> : <></>} */}
+      {searchIsLoading ? (
+        <></>
+      ) : (
+        <>
+          <Box
+            sx={{
+              paddingLeft: { xs: "1rem", sm: "4rem" },
+              paddingRight: { xs: "1rem", sm: "4rem" },
+              paddingTop: "2rem",
+              paddingBottom: "2rem",
+            }}
+          >
+            <SearchContent />
+          </Box>
+          <Footer />
+        </>
+      )}
       <ScrollToTop />
     </div>
   );

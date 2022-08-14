@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
   const data = useSelector((state) => state);
-  const { loading } = data.animeReducer;
+  const { animeIsLoading } = data.animeReducer;
 
   return (
     <div>
@@ -28,7 +28,7 @@ const Home = () => {
         <DropdownBox />
         <Content />
       </Box>
-      {loading ? <></> : <Footer />}
+      {animeIsLoading ? <></> : <Footer />}
       <ScrollToTop />
     </div>
   );

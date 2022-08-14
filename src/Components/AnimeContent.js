@@ -13,19 +13,19 @@ import axios from "axios";
 const Content = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { selectedChoice, animeList, loading } = data.animeReducer;
+  const { animeSelectedCategory, animeList, animeIsLoading } = data.animeReducer;
 
   useEffect(() => {
     const fetchChoice = async () => {
       const response = await axios.get(
-        `https://api.jikan.moe/v3/top/anime/1/${selectedChoice}`
+        `https://api.jikan.moe/v3/top/anime/1/${animeSelectedCategory}`
       );
       dispatch(selectedList(response.data.top));
     };
     fetchChoice();
-  }, [selectedChoice, dispatch]);
+  }, [animeSelectedCategory, dispatch]);
 
-  if (loading) {
+  if (animeIsLoading) {
     return <></>;
   }
   return (
@@ -36,7 +36,7 @@ const Content = () => {
         sx={{ paddingBottom: "2rem", paddingTop: {xs: "1.5rem", lg: "0rem"}  }}
         data-testid="animeContentHeading"
       >
-        Anime - Top {selectedChoice}
+        Anime - Top {animeSelectedCategory}
       </Typography>
       <Grid container spacing={6}>
         {animeList.map((item) => {

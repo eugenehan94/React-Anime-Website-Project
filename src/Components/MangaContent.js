@@ -13,25 +13,25 @@ import axios from "axios";
 const MangaContent = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { selectedChoice, mangaList, loading } = data.mangaReducer;
+  const { mangaSelectedCategory, mangaList, mangaIsLoading } = data.mangaReducer;
 
   useEffect(() => {
     const fetchChoice = async () => {
       const response = await axios.get(
-        `https://api.jikan.moe/v3/top/manga/1/${selectedChoice}`
+        `https://api.jikan.moe/v3/top/manga/1/${mangaSelectedCategory}`
       );
       dispatch(selectedList(response.data.top));
     };
     fetchChoice();
-  }, [selectedChoice, dispatch]);
+  }, [mangaSelectedCategory, dispatch]);
 
-  if (loading) {
+  if (mangaIsLoading) {
     return <></>;
   }
   return (
     <Box sx={{ p: "1rem" }}>
       <Typography variant="h3" align="center" sx={{ paddingBottom: "2rem" }}>
-        Manga - Top {selectedChoice}
+        Manga - Top {mangaSelectedCategory}
       </Typography>
       <Grid container spacing={6}>
         {mangaList.map((item) => {

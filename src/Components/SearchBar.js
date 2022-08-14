@@ -1,32 +1,43 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Box, Button, InputAdornment, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { searchQuery, queryResultsUpdate } from "../Redux/Actions/fetchData";
-import { searchLoader } from "../Redux/Actions/searchAction";
+//TODO: find better name for searchPending1
+import { searchLoader, searchPending1 } from "../Redux/Actions/searchAction";
+import Loader from "../Components/Loader";
 import SwitchTo from "../Components/SwitchTo";
-import axios from "axios"
+import axios from "axios";
 const SearchBar = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { query, typeSelection } = data.fetchReducer;
+  const { typeSelection } = data.fetchDataReducer;
+  const { searchPending } = data.searchReducer;
 
-  const fetchQuery = async () => {
+  const test = React.useRef("Naruto");
+
+  const fetchQuery = async (input) => {
+    dispatch(searchPending1(true));
     const response = await axios.get(
-      `https://api.jikan.moe/v3/search/${typeSelection}?q=${query}&limit=50`
+      `https://api.jikan.moe/v3/search/${typeSelection}?q=${input}&limit=50`
     );
     dispatch(queryResultsUpdate(response.data.results));
-    dispatch(searchLoader(false))
+    dispatch(searchLoader(false));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetchQuery();
+    fetchQuery(test.current.value);
   };
 
   const handleChange = (event) => {
     dispatch(searchQuery(event.target.value));
   };
-
 
   return (
     <div>
@@ -44,8 +55,8 @@ const SearchBar = () => {
         <form onSubmit={handleSubmit}>
           <TextField
             type="text"
-            value={query}
-            onChange={handleChange}
+            defaultValue="Naruto"
+            inputRef={test}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -53,12 +64,19 @@ const SearchBar = () => {
                 </InputAdornment>
               ),
               endAdornment: (
-                <Button type="submit" variant="text">
-                  <Typography sx={{ color: "text.primary" }}>Go</Typography>
+                <Button
+                  type="submit"
+                  variant="text"
+                  startIcon={
+                    searchPending ? <Loader size="1.8rem" thickness={7} /> : <></>
+                  }
+                  disabled={searchPending}
+                  disableRipple
+                >
+                  <Typography sx={{ color: "text.primary" }}>Search</Typography>
                 </Button>
               ),
             }}
-            // inputProps={{ style: { fontSize: 30 } }}
             sx={{
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {

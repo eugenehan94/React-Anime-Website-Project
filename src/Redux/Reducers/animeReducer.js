@@ -3,22 +3,18 @@ import {
   SELECTED_CATEGORY,
   SELECTED_CATEGORY_LIST,
 } from "../../__helper/constants";
-const initialState = {
-  selectedChoice: "airing",
-  animeList: null,
-  loading: true,
-};
+import { defaultState } from "./defaultState";
 
-export const animeReducer = (state = initialState, action) => {
+export const animeReducer = (state = defaultState, action) => {
   switch (action.type) {
     case SELECTED_CATEGORY:
       return produce(state, (draftState) => {
-        draftState.selectedChoice = action.payload;
+        draftState.animeSelectedCategory = action.payload;
       });
     case SELECTED_CATEGORY_LIST:
       return produce(state, (draftState) => {
         draftState.animeList = action.payload;
-        draftState.loading = false;
+        draftState.animeIsLoading = false;
       });
     default:
       return state;

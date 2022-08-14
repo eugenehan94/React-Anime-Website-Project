@@ -5,13 +5,13 @@ import { selectedDropdown } from "../Redux/Actions/mangaActions";
 const MangaDropdownBox = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { selectedChoice, loading } = data.mangaReducer;
+  const { mangaSelectedCategory, mangaIsLoading } = data.mangaReducer;
 
   const handleChange = (event) => {
     dispatch(selectedDropdown(event.target.value));
   };
 
-  if (loading) {
+  if (mangaIsLoading) {
     return <></>;
   }
 
@@ -26,7 +26,7 @@ const MangaDropdownBox = () => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={selectedChoice}
+          value={mangaSelectedCategory}
           onChange={handleChange}
           sx={{
             "&:before": {
