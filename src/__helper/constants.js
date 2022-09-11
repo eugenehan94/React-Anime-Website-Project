@@ -14,3 +14,4 @@ export const SELECTED_CATEGORY_LIST_MANGA = "SELECTED_CATEGORY_LIST";
 // for the searchAction & searchReducer
 export const SEARCH_LOADER = "SEARCH_LOADER";
 export const SEARCH_PENDING = "SEARCH_PENDING";
+export const SET_SEARCH_ERROR_MESSAGE = "SET_SEARCH_ERROR_MESSAGE";

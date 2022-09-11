@@ -8,8 +8,12 @@ import {
   Typography,
 } from "@mui/material";
 import { searchQuery, queryResultsUpdate } from "../Redux/Actions/fetchData";
-//TODO: find better name for searchPending1
-import { searchLoader, searchPending1 } from "../Redux/Actions/searchAction";
+
+import {
+  searchLoader,
+  setSearchPending,
+  setSearchErrorMessage,
+} from "../Redux/Actions/searchAction";
 import Loader from "../Components/Loader";
 import SwitchTo from "../Components/SwitchTo";
 import axios from "axios";
@@ -17,22 +21,29 @@ const SearchBar = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
   const { typeSelection } = data.fetchDataReducer;
-  const { searchPending } = data.searchReducer;
+  const { searchPending, searchErrorMessage } = data.searchReducer;
 
-  const test = React.useRef("Naruto");
+  const inputRef = React.useRef("Naruto");
 
   const fetchQuery = async (input) => {
-    dispatch(searchPending1(true));
-    const response = await axios.get(
-      `https://api.jikan.moe/v3/search/${typeSelection}?q=${input}&limit=50`
-    );
-    dispatch(queryResultsUpdate(response.data.results));
-    dispatch(searchLoader(false));
+    dispatch(setSearchPending(true));
+
+    try {
+      const response = await axios.get(
+        `https://api.jikan.moe/v3/search/${typeSelection}?q=${input}&limit=50`
+      );
+      dispatch(setSearchErrorMessage(""));
+      dispatch(queryResultsUpdate(response.data.results));
+      dispatch(searchLoader(false));
+    } catch (error) {
+      dispatch(setSearchErrorMessage("Oops, something went wrong. Please try again later."));
+      dispatch(setSearchPending(false));
+    }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetchQuery(test.current.value);
+    fetchQuery(inputRef.current.value);
   };
 
   const handleChange = (event) => {
@@ -49,14 +60,15 @@ const SearchBar = () => {
         sx={{
           p: "1rem",
           display: "flex",
-          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column"
         }}
       >
         <form onSubmit={handleSubmit}>
           <TextField
             type="text"
             defaultValue="Naruto"
-            inputRef={test}
+            inputRef={inputRef}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -68,7 +80,11 @@ const SearchBar = () => {
                   type="submit"
                   variant="text"
                   startIcon={
-                    searchPending ? <Loader size="1.8rem" thickness={7} /> : <></>
+                    searchPending ? (
+                      <Loader size="1.8rem" thickness={7} />
+                    ) : (
+                      <></>
+                    )
                   }
                   disabled={searchPending}
                   disableRipple
@@ -92,6 +108,7 @@ const SearchBar = () => {
             }}
           />
         </form>
+        {searchErrorMessage && <Typography>{searchErrorMessage}</Typography>}
       </Box>
     </div>
   );

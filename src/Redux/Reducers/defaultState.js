@@ -14,7 +14,8 @@ export const defaultState = {
   mangaList: null,
   mangaIsLoading: true,
   // for searchReducer.js
-  searchIsLoading: true,
+  searchComponentIsLoading: true,
   searchedData: [],
   searchPending: false,
+  searchErrorMessage: ""
 };

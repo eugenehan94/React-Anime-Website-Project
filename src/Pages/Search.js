@@ -9,13 +9,12 @@ import Footer from "../Components/Footer";
 import { useSelector } from "react-redux";
 const Search = () => {
   const data = useSelector((state) => state);
-  const { searchIsLoading, searchedData, searchPending } = data.searchReducer;
+  const { searchComponentIsLoading } = data.searchReducer;
   return (
     <div>
       <Navbar />
       <SearchBar />
-      {/* {searchPending ? <Loader/> : <></>} */}
-      {searchIsLoading ? (
+      {searchComponentIsLoading ? (
         <></>
       ) : (
         <>
