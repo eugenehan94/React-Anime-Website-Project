@@ -1,4 +1,5 @@
 import React from "react";
+import {SEARCH_TITLE} from "../__helper/constants";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
@@ -7,7 +8,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { searchQuery, queryResultsUpdate } from "../Redux/Actions/fetchData";
+import { queryResultsUpdate } from "../Redux/Actions/fetchData";
 
 import {
   searchLoader,
@@ -36,7 +37,11 @@ const SearchBar = () => {
       dispatch(queryResultsUpdate(response.data.results));
       dispatch(searchLoader(false));
     } catch (error) {
-      dispatch(setSearchErrorMessage("Oops, something went wrong. Please try again later."));
+      dispatch(
+        setSearchErrorMessage(
+          "Oops, something went wrong. Please correct your search or try again later."
+        )
+      );
       dispatch(setSearchPending(false));
     }
   };
@@ -46,14 +51,10 @@ const SearchBar = () => {
     fetchQuery(inputRef.current.value);
   };
 
-  const handleChange = (event) => {
-    dispatch(searchQuery(event.target.value));
-  };
-
   return (
     <div>
       <Typography variant="h3" align="center" sx={{ paddingTop: "1rem" }}>
-        Search Anime/ Manga
+        {SEARCH_TITLE}
       </Typography>
       <SwitchTo />
       <Box
@@ -61,7 +62,7 @@ const SearchBar = () => {
           p: "1rem",
           display: "flex",
           alignItems: "center",
-          flexDirection: "column"
+          flexDirection: "column",
         }}
       >
         <form onSubmit={handleSubmit}>
@@ -108,7 +109,9 @@ const SearchBar = () => {
             }}
           />
         </form>
-        {searchErrorMessage && <Typography>{searchErrorMessage}</Typography>}
+        {searchErrorMessage && (
+          <Typography sx={{ color: "red" }}>{searchErrorMessage}</Typography>
+        )}
       </Box>
     </div>
   );

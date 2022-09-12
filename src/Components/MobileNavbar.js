@@ -1,58 +1,119 @@
 import React from "react";
-import {
-  Box,
-  Drawer,
-  Typography,
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-} from "@mui/material";
+import { Link } from "react-router-dom";
+import { Box, Drawer, Typography, Divider } from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import SearchIcon from "@mui/icons-material/Search";
+import CloseIcon from "@mui/icons-material/Close";
+import { useSelector, useDispatch } from "react-redux";
+import { setMobileNavbarState } from "../Redux/Actions/mobileNavbarAction";
 
 const MobileNavbar = () => {
-  //   const { window } = props;
-  const drawerWidth = 240;
-  const navItems = ["Home", "About", "Contact"];
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const data = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const { mobileNavbarState } = data.mobileNavbarReducer;
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    dispatch(setMobileNavbarState(false));
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+    <Box sx={{ padding: "1rem" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Typography variant="h6">AniMan</Typography>
+        <CloseIcon
+          fontSize="large"
+          sx={{ color: "red", "&:hover": { cursor: "pointer" } }}
+          onClick={() => {
+            handleDrawerToggle();
+          }}
+        />
+      </Box>
+      <Divider sx={{ marginTop: "10px", marginBottom: "10px", backgroundColor: "rgba(255,255,255,0.2)" }} />
+      <Box sx={{paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px"}}>
+        <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+          <HomeIcon fontSize="large" sx={{ margin: 0, padding: 0 }} />
+          <Typography
+            variant="h4"
+            sx={{
+              padding: 0,
+              marginLeft: "15px",
+              letterSpacing: "2px",
+            }}
+          >
+            <Link
+              to="/"
+              style={{ color: "white" }}
+              onClick={() => handleDrawerToggle()}
+            >
+              Home
+            </Link>
+          </Typography>
+        </Box>
+        <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+          <MenuBookIcon fontSize="large" sx={{ margin: 0, padding: 0 }} />
+          <Typography
+            variant="h4"
+            sx={{
+              padding: 0,
+              marginLeft: "15px",
+              letterSpacing: "2px",
+            }}
+          >
+            <Link
+              to="/manga"
+              style={{ color: "white" }}
+              onClick={() => handleDrawerToggle()}
+            >
+              Manga
+            </Link>
+          </Typography>
+        </Box>
+        <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+          <SearchIcon fontSize="large" sx={{ margin: 0, padding: 0 }} />
+          <Typography
+            variant="h4"
+            sx={{
+              padding: 0,
+              marginLeft: "15px",
+              letterSpacing: "2px",
+            }}
+          >
+            <Link
+              to="/search"
+              style={{ color: "white" }}
+              onClick={() => handleDrawerToggle()}
+            >
+              Search
+            </Link>
+          </Typography>
+        </Box>
+      </Box>
     </Box>
   );
 
   return (
     <Box component="nav">
       <Drawer
-        // container={container}
-        variant="temporary"
-        // open={mobileOpen}
-        open={true}
+        variant="persistent"
+        open={mobileNavbarState}
         onClose={handleDrawerToggle}
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
         }}
         sx={{
           display: { xs: "block", sm: "none" },
-          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
-          width: "100%"
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: "100%",
+            backgroundColor: "#1a202c",
+          },
         }}
       >
         {drawer}

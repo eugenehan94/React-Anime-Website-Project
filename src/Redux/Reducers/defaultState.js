@@ -13,6 +13,8 @@ export const defaultState = {
   mangaSelectedCategory: "manga",
   mangaList: null,
   mangaIsLoading: true,
+  // for mobileNavbarReducer.js
+  mobileNavbarState: false,
   // for searchReducer.js
   searchComponentIsLoading: true,
   searchedData: [],

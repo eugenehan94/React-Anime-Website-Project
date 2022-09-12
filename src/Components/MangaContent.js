@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { MANGA_CATEGORY_TITLE } from "../__helper/constants";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
@@ -8,12 +9,14 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import StarRateIcon from "@mui/icons-material/StarRate";
 import { selectedList } from "../Redux/Actions/mangaActions";
 import axios from "axios";
 const MangaContent = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { mangaSelectedCategory, mangaList, mangaIsLoading } = data.mangaReducer;
+  const { mangaSelectedCategory, mangaList, mangaIsLoading } =
+    data.mangaReducer;
 
   useEffect(() => {
     const fetchChoice = async () => {
@@ -28,10 +31,11 @@ const MangaContent = () => {
   if (mangaIsLoading) {
     return <></>;
   }
+
   return (
     <Box sx={{ p: "1rem" }}>
       <Typography variant="h3" align="center" sx={{ paddingBottom: "2rem" }}>
-        Manga - Top {mangaSelectedCategory}
+        {MANGA_CATEGORY_TITLE} {mangaSelectedCategory}
       </Typography>
       <Grid container spacing={6}>
         {mangaList.map((item) => {
@@ -61,10 +65,17 @@ const MangaContent = () => {
                       }}
                     />
                     <div className="movie-info">
-                      <Typography gutterBottom>{item.title}</Typography>
-                      <Typography>{item.rank && <>Rank: {item.rank}</>}</Typography>
+                      <Typography gutterBottom>{item.title.toUpperCase()}</Typography>
+                      <Typography>
+                        {item.rank && <>Rank: {item.rank}</>}
+                      </Typography>
                       <Typography gutterBottom>
-                        {item.score && <> Score: {item.score}/10 ✩</>}
+                        {item.score && (
+                          <>
+                            Score: {item.score}/10{" "}
+                            <StarRateIcon fontSize="small" />
+                          </>
+                        )}
                       </Typography>
                       <Typography>
                         {item.start_date && <>Start date: {item.start_date}</>}

@@ -8,6 +8,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import StarRateIcon from '@mui/icons-material/StarRate';
 const SearchContent = () => {
   const data = useSelector((state) => state);
   const { queryResults } = data.fetchDataReducer;
@@ -41,7 +42,7 @@ const SearchContent = () => {
                       }}
                     />
                     <div className="movie-info">
-                      <Typography gutterBottom>{result.title}</Typography>
+                      <Typography gutterBottom>{result.title.toUpperCase()}</Typography>
                       <Typography>Type: {result.type}</Typography>
                       <Typography>{result.rated && <>{result.rated}</>}</Typography>
                       <Typography gutterBottom>
@@ -49,7 +50,7 @@ const SearchContent = () => {
                         {result.score === 0 ? (
                           " N/A"
                         ) : (
-                          <> {result.score}/10 ✩</>
+                          <> {result.score}/10 <StarRateIcon fontSize="small"/></>
                         )}
                       </Typography>
                       <Typography>
@@ -57,7 +58,7 @@ const SearchContent = () => {
                         {result.start_date === null ? (
                           " Unknown"
                         ) : (
-                          <>{result.start_date}</>
+                          <>{result.start_date.slice(0,10)}</>
                         )}
                       </Typography>
                       <Typography>

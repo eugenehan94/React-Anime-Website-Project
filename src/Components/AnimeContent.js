@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { ANIME_CATEGORY_TITLE } from "../__helper/constants";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
@@ -8,12 +9,14 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import StarRateIcon from "@mui/icons-material/StarRate";
 import { selectedList } from "../Redux/Actions/animeActions";
 import axios from "axios";
 const Content = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { animeSelectedCategory, animeList, animeIsLoading } = data.animeReducer;
+  const { animeSelectedCategory, animeList, animeIsLoading } =
+    data.animeReducer;
 
   useEffect(() => {
     const fetchChoice = async () => {
@@ -33,10 +36,10 @@ const Content = () => {
       <Typography
         variant="h3"
         align="center"
-        sx={{ paddingBottom: "2rem", paddingTop: {xs: "1.5rem", lg: "0rem"}  }}
+        sx={{ paddingBottom: "2rem", paddingTop: { xs: "1.5rem", lg: "0rem" } }}
         data-testid="animeContentHeading"
       >
-        Anime - Top {animeSelectedCategory}
+        {ANIME_CATEGORY_TITLE} {animeSelectedCategory}
       </Typography>
       <Grid container spacing={6}>
         {animeList.map((item) => {
@@ -66,11 +69,17 @@ const Content = () => {
                       }}
                     />
                     <div className="movie-info">
-                      <Typography gutterBottom>{item.title}</Typography>
+                      <Typography gutterBottom>{item.title.toUpperCase()}</Typography>
                       <Typography>Rank: {item.rank}</Typography>
                       <Typography gutterBottom>
-                        Score:
-                        {item.score === 0 ? " N/A" : <> {item.score}/10 ✩</>}
+                        Score: {" "}
+                        {item.score === 0 ? (
+                          " N/A"
+                        ) : (
+                          <>
+                            {item.score}/10 <StarRateIcon fontSize="small" />
+                          </>
+                        )}
                       </Typography>
                       <Typography>
                         Start Date:{" "}

@@ -1,6 +1,5 @@
 import React from "react";
 import { Box } from "@mui/material";
-import Loader from "../Components/Loader";
 import Navbar from "../Components/Navbar";
 import ScrollToTop from "../Components/ScrollToTop";
 import SearchBar from "../Components/SearchBar";

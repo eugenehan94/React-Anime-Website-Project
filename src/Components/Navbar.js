@@ -1,12 +1,17 @@
 import React from "react";
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Grid, Toolbar, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setMobileNavbarState } from "../Redux/Actions/mobileNavbarAction";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import MenuIcon  from "@mui/icons-material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
 import MobileNavbar from "./MobileNavbar";
 
 const Navbar = () => {
+  const data = useSelector((state) => state);
+  const dispatch = useDispatch();
   const mobileView = useMediaQuery((theme) => theme.breakpoints.up("sm"));
+  const { mobileNavbarState } = data.mobileNavbarReducer;
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" elevation={0}>
@@ -27,7 +32,6 @@ const Navbar = () => {
               >
                 <Link to="/manga" style={{ color: "white" }}>
                   Manga
-                  {/* <span>{`theme.breakpoints.up('sm') mobileView: ${mobileView}`}</span> */}
                 </Link>
               </Typography>
               <Typography variant="h6">
@@ -37,8 +41,35 @@ const Navbar = () => {
               </Typography>
             </>
           ) : (
-            // <MenuIcon />
-            <MobileNavbar/>
+            <>
+              <Grid
+                container
+                justifyContent="space-between"
+                alignItems="center"
+              >
+                <Grid item>
+                  <Typography
+                    variant="h6"
+                    sx={{ flexGrow: 1, color: "#FF0000" }}
+                  >
+                    AniMan
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <MenuIcon
+                    sx={{
+                      margin: 0,
+                      padding: 0,
+                      "&:hover": { cursor: "pointer" },
+                    }}
+                    onClick={() => {
+                      dispatch(setMobileNavbarState(!mobileNavbarState));
+                    }}
+                  />
+                </Grid>
+              </Grid>
+              <MobileNavbar />
+            </>
           )}
         </Toolbar>
       </AppBar>

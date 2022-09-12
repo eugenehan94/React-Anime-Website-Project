@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -36,8 +37,11 @@ const ScrollToTop = () => {
             color: "black",
             "&:hover": { backgroundColor: "#ff2323" },
           }}
+          size="small"
         >
-          <Typography sx={{ fontSize: "1.5rem", fontWeight: "bold" }}>Top</Typography>
+          <KeyboardDoubleArrowUpIcon
+            sx={{ fontSize: "1.5rem", fontWeight: "bold" }}
+          />
         </Button>
       )}
     </Box>
