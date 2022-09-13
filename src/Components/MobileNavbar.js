@@ -7,7 +7,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import { useSelector, useDispatch } from "react-redux";
 import { setMobileNavbarState } from "../Redux/Actions/mobileNavbarAction";
-import Footer from "./Footer";
 
 const MobileNavbar = () => {
   const data = useSelector((state) => state);
@@ -19,7 +18,7 @@ const MobileNavbar = () => {
   };
 
   const drawer = (
-    <Box sx={{ padding: "1rem", height: "100%", width:"100%" }}>
+    <Box sx={{ padding: "1rem", height: "100%", width: "100%" }}>
       <Box
         sx={{
           display: "flex",
@@ -46,7 +45,14 @@ const MobileNavbar = () => {
       <Box
         sx={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
       >
-        <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            alignItems: "center",
+            marginBottom: "20px",
+          }}
+        >
           <HomeIcon fontSize="large" sx={{ margin: 0, padding: 0 }} />
           <Typography
             variant="h4"
@@ -65,7 +71,14 @@ const MobileNavbar = () => {
             </Link>
           </Typography>
         </Box>
-        <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            alignItems: "center",
+            marginBottom: "20px",
+          }}
+        >
           <MenuBookIcon fontSize="large" sx={{ margin: 0, padding: 0 }} />
           <Typography
             variant="h4"
@@ -84,7 +97,14 @@ const MobileNavbar = () => {
             </Link>
           </Typography>
         </Box>
-        <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            alignItems: "center",
+            marginBottom: "20px",
+          }}
+        >
           <SearchIcon fontSize="large" sx={{ margin: 0, padding: 0 }} />
           <Typography
             variant="h4"
@@ -105,7 +125,7 @@ const MobileNavbar = () => {
         </Box>
       </Box>
 
-      <Box sx={{ position: "fixed", bottom: "30px", width: "90%"}}>
+      <Box sx={{ position: "fixed", bottom: "30px", width: "90%" }}>
         <Divider
           variant="fullWidth"
           sx={{
@@ -113,7 +133,20 @@ const MobileNavbar = () => {
             backgroundColor: "rgba(255,255,255,0.2)",
           }}
         />
-        <Typography align="center">AniMan Developed by <span>TEST</span></Typography>
+        <Typography align="center">AniMan Developed by</Typography>
+        <Typography
+          align="center"
+          onClick={() => {
+            window.open(
+              "https://eugenehan.netlify.app/",
+              "_blank",
+              "noopener,noreferrer"
+            );
+          }}
+          sx={{ "&:hover": { cursor: "pointer" }, textDecoration: "underline" }}
+        >
+          Eugene Han
+        </Typography>
       </Box>
     </Box>
   );
