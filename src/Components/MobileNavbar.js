@@ -7,6 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import { useSelector, useDispatch } from "react-redux";
 import { setMobileNavbarState } from "../Redux/Actions/mobileNavbarAction";
+import Footer from "./Footer";
 
 const MobileNavbar = () => {
   const data = useSelector((state) => state);
@@ -18,7 +19,7 @@ const MobileNavbar = () => {
   };
 
   const drawer = (
-    <Box sx={{ padding: "1rem" }}>
+    <Box sx={{ padding: "1rem", height: "100%", width:"100%" }}>
       <Box
         sx={{
           display: "flex",
@@ -35,8 +36,16 @@ const MobileNavbar = () => {
           }}
         />
       </Box>
-      <Divider sx={{ marginTop: "10px", marginBottom: "10px", backgroundColor: "rgba(255,255,255,0.2)" }} />
-      <Box sx={{paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px"}}>
+      <Divider
+        sx={{
+          marginTop: "10px",
+          marginBottom: "10px",
+          backgroundColor: "rgba(255,255,255,0.2)",
+        }}
+      />
+      <Box
+        sx={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
+      >
         <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
           <HomeIcon fontSize="large" sx={{ margin: 0, padding: 0 }} />
           <Typography
@@ -94,6 +103,17 @@ const MobileNavbar = () => {
             </Link>
           </Typography>
         </Box>
+      </Box>
+
+      <Box sx={{ position: "fixed", bottom: "30px", width: "90%"}}>
+        <Divider
+          variant="fullWidth"
+          sx={{
+            marginBottom: "10px",
+            backgroundColor: "rgba(255,255,255,0.2)",
+          }}
+        />
+        <Typography align="center">AniMan Developed by <span>TEST</span></Typography>
       </Box>
     </Box>
   );
