@@ -2,8 +2,9 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Box, FormControl, Select, MenuItem } from "@mui/material";
 import { selectedDropdown } from "../Redux/Actions/animeActions";
+import Loader from "./Loader";
 
-const DropdownBox = () => {
+const AnimeDropdownBox = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
   const { animeSelectedCategory, animeIsLoading } = data.animeReducer;
@@ -13,7 +14,7 @@ const DropdownBox = () => {
   };
 
   if (animeIsLoading) {
-    return <></>;
+    return <Loader/>;
   }
 
   return (
@@ -75,4 +76,4 @@ const DropdownBox = () => {
   );
 };
 
-export default DropdownBox;
+export default AnimeDropdownBox;

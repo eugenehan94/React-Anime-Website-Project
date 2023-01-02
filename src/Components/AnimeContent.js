@@ -12,18 +12,43 @@ import {
 import StarRateIcon from "@mui/icons-material/StarRate";
 import { selectedList } from "../Redux/Actions/animeActions";
 import axios from "axios";
-const Content = () => {
+
+const AnimeContent = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
   const { animeSelectedCategory, animeList, animeIsLoading } =
     data.animeReducer;
 
   useEffect(() => {
+    // Link to handling errors in axios async/await setup
+    // https://rapidapi.com/guides/axios-async-await
     const fetchChoice = async () => {
-      const response = await axios.get(
-        `https://api.jikan.moe/v3/top/anime/1/${animeSelectedCategory}`
-      );
-      dispatch(selectedList(response.data.top));
+      try {
+        let response;
+        // New version of API (V4) separated categories into specific API calls base on query parameters.
+        if (
+          animeSelectedCategory === "tv" ||
+          animeSelectedCategory === "movie"
+        ) {
+          response = await axios.get(
+            `https://api.jikan.moe/v4/top/anime?type=${animeSelectedCategory}`
+          );
+        }
+        if (
+          animeSelectedCategory === "airing" ||
+          animeSelectedCategory === "upcoming"
+        ) {
+          response = await axios.get(
+            `https://api.jikan.moe/v4/top/anime?filter=${animeSelectedCategory}`
+          );
+        }
+        // const response = await axios.get(
+        //   `https://api.jikan.moe/v4/top/anime`
+        // );
+        dispatch(selectedList(response.data.data));
+      } catch (errors) {
+        console.log("errors: ", errors);
+      }
     };
     fetchChoice();
   }, [animeSelectedCategory, dispatch]);
@@ -60,7 +85,8 @@ const Content = () => {
                   <div className="movie">
                     <CardMedia
                       component="img"
-                      image={item.image_url}
+                      // image={item.image_url}
+                      image={item.images.jpg.image_url}
                       alt={item.title}
                       height="325"
                       sx={{
@@ -69,10 +95,12 @@ const Content = () => {
                       }}
                     />
                     <div className="movie-info">
-                      <Typography gutterBottom>{item.title.toUpperCase()}</Typography>
+                      <Typography gutterBottom>
+                        {item.title.toUpperCase()}
+                      </Typography>
                       <Typography>Rank: {item.rank}</Typography>
                       <Typography gutterBottom>
-                        Score: {" "}
+                        Score:{" "}
                         {item.score === 0 ? (
                           " N/A"
                         ) : (
@@ -83,10 +111,10 @@ const Content = () => {
                       </Typography>
                       <Typography>
                         Start Date:{" "}
-                        {item.start_date === null ? (
+                        {item.aired.string === null ? (
                           " Unknown"
                         ) : (
-                          <>{item.start_date}</>
+                          <>{item.aired.string}</>
                         )}
                       </Typography>
                       <Typography>
@@ -109,4 +137,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default AnimeContent;

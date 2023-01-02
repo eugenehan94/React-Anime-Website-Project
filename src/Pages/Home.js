@@ -1,9 +1,9 @@
 import React from "react";
 import { Box } from "@mui/material";
 import Navbar from "../Components/Navbar";
-import Hero from "../Components/AnimeHero";
-import DropdownBox from "../Components/AnimeDropdownBox";
-import Content from "../Components/AnimeContent";
+import AnimeHero from "../Components/AnimeHero";
+import AnimeDropdownBox from "../Components/AnimeDropdownBox";
+import AnimeContent from "../Components/AnimeContent";
 import ScrollToTop from "../Components/ScrollToTop";
 import Footer from "../Components/Footer";
 
@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <Hero />
+      <AnimeHero />
       <Box
         sx={{
           paddingLeft: { xs: "1rem", sm: "4rem" },
@@ -25,8 +25,8 @@ const Home = () => {
           paddingBottom: "2rem",
         }}
       >
-        <DropdownBox />
-        <Content />
+        <AnimeDropdownBox />
+        <AnimeContent />
       </Box>
       {animeIsLoading ? <></> : <Footer />}
       <ScrollToTop />
