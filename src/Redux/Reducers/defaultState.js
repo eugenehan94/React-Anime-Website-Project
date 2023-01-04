@@ -5,6 +5,7 @@ export const defaultState = {
   animeSelectedCategory: "airing",
   animeList: null,
   animeIsLoading: true,
+  animeApiError: false,
   // for fetchDataReducer
   loading: true,
   queryResults: [],

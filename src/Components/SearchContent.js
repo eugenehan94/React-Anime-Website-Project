@@ -8,16 +8,17 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import StarRateIcon from '@mui/icons-material/StarRate';
+import StarRateIcon from "@mui/icons-material/StarRate";
 const SearchContent = () => {
   const data = useSelector((state) => state);
   const { queryResults } = data.fetchDataReducer;
   return (
     <Box>
       <Grid container spacing={6}>
-        {queryResults.map((result) => {
+        {queryResults.map((result, i) => {
           return (
-            <Grid item xl={2} lg={3} md={4} sm={6} xs={12} key={result.mal_id}>
+            // key={i} because API of same Manga and Anime will give same key errors
+            <Grid item xl={2} lg={3} md={4} sm={6} xs={12} key={i}>
               <Card
                 sx={{
                   backgroundColor: "#1a202c",
@@ -33,7 +34,7 @@ const SearchContent = () => {
                   <div className="movie">
                     <CardMedia
                       component="img"
-                      image={result.image_url}
+                      image={result.images.jpg.image_url}
                       alt={result.title}
                       height="325"
                       sx={{
@@ -42,23 +43,19 @@ const SearchContent = () => {
                       }}
                     />
                     <div className="movie-info">
-                      <Typography gutterBottom>{result.title.toUpperCase()}</Typography>
+                      <Typography gutterBottom>
+                        {result.title.toUpperCase()}
+                      </Typography>
                       <Typography>Type: {result.type}</Typography>
-                      <Typography>{result.rated && <>{result.rated}</>}</Typography>
                       <Typography gutterBottom>
                         Score:
                         {result.score === 0 ? (
                           " N/A"
                         ) : (
-                          <> {result.score}/10 <StarRateIcon fontSize="small"/></>
-                        )}
-                      </Typography>
-                      <Typography>
-                        Start Date:{" "}
-                        {result.start_date === null ? (
-                          " Unknown"
-                        ) : (
-                          <>{result.start_date.slice(0,10)}</>
+                          <>
+                            {" "}
+                            {result.score}/10 <StarRateIcon fontSize="small" />
+                          </>
                         )}
                       </Typography>
                       <Typography>

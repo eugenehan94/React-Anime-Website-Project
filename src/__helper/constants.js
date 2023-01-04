@@ -1,7 +1,7 @@
 // for animeActions & animeReducer
 export const SELECTED_CATEGORY = "SELECTED_CATEGORY";
 export const SELECTED_CATEGORY_LIST = "SELECTED_CATEGORY_LIST";
-
+export const TOGGLE_ANIME_API_ERROR = "TOGGLE_ANIME_API_ERROR";
 // for fetchData & fetchDataReducer
 export const SEARCH_QUERY = "SEARCH_QUERY";
 export const QUERY_RESULTS_UPDATE = "QUERY_RESULTS_UPDATE";

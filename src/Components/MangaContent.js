@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import { selectedList } from "../Redux/Actions/mangaActions";
+import Loader from "./Loader";
+
 import axios from "axios";
 const MangaContent = () => {
   const data = useSelector((state) => state);
@@ -20,16 +22,20 @@ const MangaContent = () => {
 
   useEffect(() => {
     const fetchChoice = async () => {
-      const response = await axios.get(
-        `https://api.jikan.moe/v3/top/manga/1/${mangaSelectedCategory}`
-      );
-      dispatch(selectedList(response.data.top));
+      try {
+        const response = await axios.get(
+          `https://api.jikan.moe/v4/top/manga?type=${mangaSelectedCategory}`
+        );
+        dispatch(selectedList(response.data.data));
+      } catch (errors) {
+        console.log("errors present: ", errors);
+      }
     };
     fetchChoice();
   }, [mangaSelectedCategory, dispatch]);
 
   if (mangaIsLoading) {
-    return <></>;
+    return <Loader/>;
   }
 
   return (
@@ -56,7 +62,8 @@ const MangaContent = () => {
                   <div className="movie">
                     <CardMedia
                       component="img"
-                      image={item.image_url}
+                      // image={item.image_url}
+                      image={item.images.jpg.image_url}
                       alt={item.title}
                       height="325"
                       sx={{
@@ -65,7 +72,9 @@ const MangaContent = () => {
                       }}
                     />
                     <div className="movie-info">
-                      <Typography gutterBottom>{item.title.toUpperCase()}</Typography>
+                      <Typography gutterBottom>
+                        {item.title.toUpperCase()}
+                      </Typography>
                       <Typography>
                         {item.rank && <>Rank: {item.rank}</>}
                       </Typography>
@@ -77,12 +86,9 @@ const MangaContent = () => {
                           </>
                         )}
                       </Typography>
-                      <Typography>
-                        {item.start_date && <>Start date: {item.start_date}</>}
-                      </Typography>
-                      <Typography>
-                        {item.end_date && <>End date: {item.end_date}</>}
-                      </Typography>
+                      {/* <Typography>
+                        {item.published.string && <>Published: {item.published.string}</>}
+                      </Typography> */}
                       <Typography>
                         {item.volumes && <>Volume(s): {item.volumes}</>}
                       </Typography>

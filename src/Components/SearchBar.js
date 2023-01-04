@@ -28,13 +28,12 @@ const SearchBar = () => {
 
   const fetchQuery = async (input) => {
     dispatch(setSearchPending(true));
-
     try {
       const response = await axios.get(
-        `https://api.jikan.moe/v3/search/${typeSelection}?q=${input}&limit=50`
+        `https://api.jikan.moe/v4/${typeSelection}?q=${input}&limit=50`
       );
       dispatch(setSearchErrorMessage(""));
-      dispatch(queryResultsUpdate(response.data.results));
+      dispatch(queryResultsUpdate(response.data.data));
       dispatch(searchLoader(false));
     } catch (error) {
       dispatch(
