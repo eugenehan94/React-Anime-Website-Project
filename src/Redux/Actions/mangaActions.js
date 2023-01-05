@@ -1,4 +1,4 @@
-import { MANGA_SELECTED_CATEGORY, SELECTED_CATEGORY_LIST_MANGA } from "../../__helper/constants";
+import { MANGA_SELECTED_CATEGORY, SELECTED_CATEGORY_LIST_MANGA, TOGGLE_MANGA_IS_LOADING } from "../../__helper/constants";
 
 export const selectedDropdown = (selected) => {
     return {
@@ -13,3 +13,10 @@ export const selectedList = (list) => {
     payload: list,
   };
 };
+
+export const toggleMangaIsLoading = (state) => {
+  return {
+    type: TOGGLE_MANGA_IS_LOADING,
+    payload: state
+  }
+}

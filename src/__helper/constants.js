@@ -2,6 +2,7 @@
 export const SELECTED_CATEGORY = "SELECTED_CATEGORY";
 export const SELECTED_CATEGORY_LIST = "SELECTED_CATEGORY_LIST";
 export const TOGGLE_ANIME_API_ERROR = "TOGGLE_ANIME_API_ERROR";
+export const TOGGLE_ANIME_IS_LOADING = "TOGGLE_ANIME_IS_LOADING";
 // for fetchData & fetchDataReducer
 export const SEARCH_QUERY = "SEARCH_QUERY";
 export const QUERY_RESULTS_UPDATE = "QUERY_RESULTS_UPDATE";
@@ -10,6 +11,7 @@ export const QUERY_TYPE_SELECTION = "QUERY_TYPE_SELECTION";
 // for mangaActions & mangaReducer
 export const MANGA_SELECTED_CATEGORY = "MANGA_SELECTED_CATEGORY";
 export const SELECTED_CATEGORY_LIST_MANGA = "SELECTED_CATEGORY_LIST";
+export const TOGGLE_MANGA_IS_LOADING = "TOGGLE_MANGA_IS_LOADING";
 
 // for the mobileNavbarAction & mobileNavbarReducer
 export const SET_MOBILE_NAVBAR_STATE = "SET_MOBILE_NAVBAR_STATE";
@@ -23,7 +25,7 @@ export const SET_SEARCH_ERROR_MESSAGE = "SET_SEARCH_ERROR_MESSAGE";
 export const ANIME_CATEGORY_TITLE = "Anime - top ";
 
 // for MangaContent.js
-export const MANGA_CATEGORY_TITLE = "Manga - top";
+export const MANGA_CATEGORY_TITLE = "Top";
 
 // for SearchBar.js
 export const SEARCH_TITLE = "Search Anime/ Manga";

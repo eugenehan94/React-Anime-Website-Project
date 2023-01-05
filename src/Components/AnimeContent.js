@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { ANIME_CATEGORY_TITLE } from "../__helper/constants";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
@@ -60,18 +59,14 @@ const AnimeContent = () => {
   }, [animeSelectedCategory, dispatch]);
 
   if (animeIsLoading) {
-    return <Loader />;
+    return (
+      <Box sx={{ paddingTop: "1rem" }}>
+        <Loader />
+      </Box>
+    );
   }
   return (
     <Box>
-      <Typography
-        variant="h3"
-        align="center"
-        sx={{ paddingBottom: "2rem", paddingTop: { xs: "1.5rem", lg: "0rem" } }}
-        data-testid="animeContentHeading"
-      >
-        {ANIME_CATEGORY_TITLE} {animeSelectedCategory}
-      </Typography>
       {animeApiError ? (
         <>
           <Typography align="center" variant="h5">

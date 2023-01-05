@@ -2,7 +2,8 @@ import produce from "immer";
 import {
   SELECTED_CATEGORY,
   SELECTED_CATEGORY_LIST,
-  TOGGLE_ANIME_API_ERROR
+  TOGGLE_ANIME_API_ERROR,
+  TOGGLE_ANIME_IS_LOADING
 } from "../../__helper/constants";
 import { defaultState } from "./defaultState";
 
@@ -17,6 +18,10 @@ export const animeReducer = (state = defaultState, action) => {
         draftState.animeList = action.payload;
         draftState.animeIsLoading = false;
       });
+    case TOGGLE_ANIME_IS_LOADING:
+      return produce(state, (draftState) => {
+        draftState.animeIsLoading = action.payload;
+      })
     case TOGGLE_ANIME_API_ERROR:
       return produce(state, (draftState) => {
         draftState.animeApiError = action.payload;

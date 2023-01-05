@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { MANGA_CATEGORY_TITLE } from "../__helper/constants";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
@@ -40,9 +39,6 @@ const MangaContent = () => {
 
   return (
     <Box sx={{ p: "1rem" }}>
-      <Typography variant="h3" align="center" sx={{ paddingBottom: "2rem" }}>
-        {MANGA_CATEGORY_TITLE} {mangaSelectedCategory}
-      </Typography>
       <Grid container spacing={6}>
         {mangaList.map((item) => {
           return (
