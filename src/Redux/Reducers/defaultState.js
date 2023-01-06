@@ -14,6 +14,7 @@ export const defaultState = {
   mangaSelectedCategory: "manga",
   mangaList: null,
   mangaIsLoading: true,
+  mangaApiError: false,
   // for mobileNavbarReducer.js
   mobileNavbarState: false,
   // for searchReducer.js

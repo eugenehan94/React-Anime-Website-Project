@@ -2,7 +2,8 @@ import produce from "immer";
 import {
   MANGA_SELECTED_CATEGORY,
   SELECTED_CATEGORY_LIST_MANGA,
-  TOGGLE_MANGA_IS_LOADING
+  TOGGLE_MANGA_IS_LOADING,
+  TOGGLE_MANGA_API_ERROR
 } from "../../__helper/constants";
 import { defaultState } from "./defaultState";
 
@@ -20,6 +21,10 @@ export const mangaReducer = (state = defaultState, action) => {
     case TOGGLE_MANGA_IS_LOADING:
       return produce(state, (draftState) => {
         draftState.mangaIsLoading = action.payload;
+      });
+    case TOGGLE_MANGA_API_ERROR: 
+      return produce(state, (draftState) => {
+        draftState.mangaApiError = action.payload;
       })
     default:
       return state;
