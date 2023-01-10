@@ -15,6 +15,8 @@ https://eugenehan94.github.io/React-Anime-Website-Project/
 ## 4
 ![Anime4Gif](https://user-images.githubusercontent.com/59939048/168453638-4abe03b7-717a-4d0b-977c-db8d00e9a331.gif)
 
+## Image use for Jikan Showcase
+![image](https://user-images.githubusercontent.com/59939048/211441050-a09869d8-6b98-49f5-b525-d4082469f763.png)
 
 
 -------------------------------------------------------------------------------------------------------------
