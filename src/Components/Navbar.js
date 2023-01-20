@@ -34,9 +34,14 @@ const Navbar = () => {
                   Manga
                 </Link>
               </Typography>
-              <Typography variant="h6">
+              <Typography variant="h6" sx={{ paddingRight: { xs: 0, sm: 3 } }}>
                 <Link to="/search" style={{ color: "white" }}>
                   Search
+                </Link>
+              </Typography>
+              <Typography variant="h6">
+                <Link to="/random" style={{ color: "white" }}>
+                  Random
                 </Link>
               </Typography>
             </>
