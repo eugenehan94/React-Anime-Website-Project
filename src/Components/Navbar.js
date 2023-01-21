@@ -13,7 +13,7 @@ const Navbar = () => {
   const mobileView = useMediaQuery((theme) => theme.breakpoints.up("sm"));
   const { mobileNavbarState } = data.mobileNavbarReducer;
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, border: "1px solid red" }}>
       <AppBar position="static" elevation={0}>
         <Toolbar>
           {mobileView ? (
