@@ -5,6 +5,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
+import ShuffleIcon from '@mui/icons-material/Shuffle';
 import { useSelector, useDispatch } from "react-redux";
 import { setMobileNavbarState } from "../Redux/Actions/mobileNavbarAction";
 
@@ -120,6 +121,32 @@ const MobileNavbar = () => {
               onClick={() => handleDrawerToggle()}
             >
               Search
+            </Link>
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            alignItems: "center",
+            marginBottom: "20px",
+          }}
+        >
+          <ShuffleIcon fontSize="large" sx={{ margin: 0, padding: 0 }} />
+          <Typography
+            variant="h4"
+            sx={{
+              padding: 0,
+              marginLeft: "15px",
+              letterSpacing: "2px",
+            }}
+          >
+            <Link
+              to="/random"
+              style={{ color: "white" }}
+              onClick={() => handleDrawerToggle()}
+            >
+              Random
             </Link>
           </Typography>
         </Box>
