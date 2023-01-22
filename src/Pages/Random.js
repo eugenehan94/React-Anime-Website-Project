@@ -1,17 +1,26 @@
 import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../Components/Navbar";
+import RandomHero from "../Components/RandomHero";
 
-import demonSlayerHeroImage from "../Images/demonSlayerHeroImage.jpg";
+import { storeRandomAnime, toggleRandomAnimeIsLoading } from "../Redux/Actions/randomActions";
 
 import axios from "axios";
+
 const Random = () => {
+  const data = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const { randomAnimeIsLoading } = data.randomReducer;
+  // const { randomAnimeIsLoading } = randomAnimeData;
   useEffect(() => {
     const fetchRandomAnime = async () => {
       try {
         const response = await axios.get(
           `https://api.jikan.moe/v4/random/anime`
         );
-        console.log("response: ", response);
+        console.log("response: ", response.data.data);
+        dispatch(storeRandomAnime(response.data.data));
+        dispatch(toggleRandomAnimeIsLoading(false))
       } catch (errors) {
         console.log("fetchRandomAnime error: ", errors);
       }
@@ -28,11 +37,12 @@ const Random = () => {
     };
     fetchRandomAnime();
     fetchRandomManga();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
       <Navbar />
+      {randomAnimeIsLoading ? "LOADING" : <RandomHero />}
     </div>
   );
 };

@@ -21,5 +21,8 @@ export const defaultState = {
   searchComponentIsLoading: true,
   searchedData: [],
   searchPending: false,
-  searchErrorMessage: ""
+  searchErrorMessage: "",
+  // for randomReducer.js
+  randomAnimeIsLoading: true,
+  randomAnimeData: undefined
 };

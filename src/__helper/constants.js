@@ -30,3 +30,7 @@ export const MANGA_CATEGORY_TITLE = "Top";
 
 // for SearchBar.js
 export const SEARCH_TITLE = "Search Anime/ Manga";
+
+// for randomActions.js
+export const STORE_RANDOM_ANIME = "STORE_RANDOM_ANIME";
+export const TOGGLE_RANDOM_ANIME_IS_LOADING = " RANDOM_ANIME_IS_LOADING";
