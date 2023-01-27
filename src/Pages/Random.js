@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Box } from "@mui/material";
+import Loader from "../Components/Loader";
 import Navbar from "../Components/Navbar";
 import RandomHero from "../Components/RandomHero";
 
-import { storeRandomAnime, toggleRandomAnimeIsLoading } from "../Redux/Actions/randomActions";
+import {
+  storeRandomAnime,
+  toggleRandomAnimeIsLoading,
+} from "../Redux/Actions/randomActions";
 
 import axios from "axios";
 
@@ -20,7 +25,7 @@ const Random = () => {
         );
         console.log("response: ", response.data.data);
         dispatch(storeRandomAnime(response.data.data));
-        dispatch(toggleRandomAnimeIsLoading(false))
+        dispatch(toggleRandomAnimeIsLoading(false));
       } catch (errors) {
         console.log("fetchRandomAnime error: ", errors);
       }
@@ -42,7 +47,16 @@ const Random = () => {
   return (
     <div>
       <Navbar />
-      {randomAnimeIsLoading ? "LOADING" : <RandomHero />}
+      <Box
+        sx={{
+          paddingLeft: { xs: "1rem", sm: "4rem" },
+          paddingRight: { xs: "1rem", sm: "4rem" },
+          paddingTop: "2rem",
+          paddingBottom: "2rem",
+        }}
+      >
+        {randomAnimeIsLoading ? <Loader/> : <RandomHero />}
+      </Box>
     </div>
   );
 };
