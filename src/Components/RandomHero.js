@@ -30,6 +30,7 @@ const RandomHero = () => {
   console.log("randomAnimeData: ", randomAnimeData);
   return (
     <Box>
+      <Typography variant="h3" align="center">Anime</Typography>
       <Grid container spacing={1}>
         <Grid item md={3}>
           <Card>

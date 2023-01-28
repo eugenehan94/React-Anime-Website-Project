@@ -49,8 +49,8 @@ const Random = () => {
       <Navbar />
       <Box
         sx={{
-          paddingLeft: { xs: "1rem", sm: "4rem" },
-          paddingRight: { xs: "1rem", sm: "4rem" },
+          paddingLeft: { xs: "1rem", sm: "2rem" },
+          paddingRight: { xs: "1rem", sm: "2rem" },
           paddingTop: "2rem",
           paddingBottom: "2rem",
         }}
