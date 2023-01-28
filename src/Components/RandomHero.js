@@ -30,7 +30,14 @@ const RandomHero = () => {
   console.log("randomAnimeData: ", randomAnimeData);
   return (
     <Box>
-      <Typography variant="h3" align="center">Anime</Typography>
+      <Typography
+        variant="h3"
+        align="center"
+        gutterBottom
+        sx={{ textDecoration: "underline" }}
+      >
+        Anime
+      </Typography>
       <Grid container spacing={1}>
         <Grid item md={3}>
           <Card>
@@ -43,11 +50,11 @@ const RandomHero = () => {
           </Card>
         </Grid>
         <Grid item md={9}>
-          <Typography>{title}</Typography>
-          <Typography>{title_japanese}</Typography>
-          <Typography>Synopsis</Typography>
+          <Typography variant="h4">{title}</Typography>
+          <Typography variant="h4" gutterBottom>{title_japanese}</Typography>
+          <Typography variant="h4">Synopsis</Typography>
           <Typography>{synopsis}</Typography>
-          <Typography>More Information</Typography>
+          <Typography variant="h4">More Information</Typography>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6} lg={2}>
               <Card sx={{ backgroundColor: "#363846" }}>
@@ -105,27 +112,26 @@ const RandomHero = () => {
             </Grid>
           </Grid>
           <Grid container>
-          <Grid item>
-            <Typography>Trailer</Typography>
-            {/* https://dev.to/bravemaster619/simplest-way-to-embed-a-youtube-video-in-your-react-app-3bk2 */}
-            <iframe
-              width="100%"
-              style={{maxWidth: "500px"}}
-              height="100%"
-              src={`https://www.youtube.com/embed/${trailer.youtube_id}`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Embedded youtube"
-            />
-            <Typography>
-              Information compiled from AniList and MyAnimeList. Episode count
-              includes sequel seasons and movies. Trailer may be unavailable in
-              certain regions. Streaming availability determined based of United
-              States Licensing.
-            </Typography>
+            <Grid item>
+              <Typography>Trailer</Typography>
+              {/* https://dev.to/bravemaster619/simplest-way-to-embed-a-youtube-video-in-your-react-app-3bk2 */}
+              <iframe
+                width="100%"
+                style={{ maxWidth: "500px" }}
+                height="100%"
+                src={`https://www.youtube.com/embed/${trailer.youtube_id}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Embedded youtube"
+              />
+              <Typography>
+                Information compiled from AniList and MyAnimeList. Episode count
+                includes sequel seasons and movies. Trailer may be unavailable
+                in certain regions. Streaming availability determined based of
+                United States Licensing.
+              </Typography>
+            </Grid>
           </Grid>
-          </Grid>
-     
         </Grid>
         <Grid item xs={3} />
       </Grid>
