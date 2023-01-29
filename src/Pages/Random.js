@@ -8,6 +8,8 @@ import RandomHero from "../Components/RandomHero";
 import {
   storeRandomAnime,
   toggleRandomAnimeIsLoading,
+  storeRandomManga,
+  toggleRandomMangaIsLoading,
 } from "../Redux/Actions/randomActions";
 
 import axios from "axios";
@@ -15,7 +17,7 @@ import axios from "axios";
 const Random = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { randomAnimeIsLoading } = data.randomReducer;
+  const { randomAnimeIsLoading, randomMangaIsLoading } = data.randomReducer;
   // const { randomAnimeIsLoading } = randomAnimeData;
   useEffect(() => {
     const fetchRandomAnime = async () => {
@@ -23,7 +25,6 @@ const Random = () => {
         const response = await axios.get(
           `https://api.jikan.moe/v4/random/anime`
         );
-        console.log("response: ", response.data.data);
         dispatch(storeRandomAnime(response.data.data));
         dispatch(toggleRandomAnimeIsLoading(false));
       } catch (errors) {
@@ -36,6 +37,8 @@ const Random = () => {
           `https://api.jikan.moe/v4/random/manga`
         );
         console.log("manga response: ", response);
+        dispatch(storeRandomManga(response.data.data));
+        dispatch(toggleRandomMangaIsLoading(false));
       } catch (errors) {
         console.log("fetchRandomManga error: ", errors);
       }
@@ -55,7 +58,11 @@ const Random = () => {
           paddingBottom: "2rem",
         }}
       >
-        {randomAnimeIsLoading ? <Loader/> : <RandomHero />}
+        {randomAnimeIsLoading || randomMangaIsLoading ? (
+          <Loader />
+        ) : (
+          <RandomHero />
+        )}
       </Box>
     </div>
   );

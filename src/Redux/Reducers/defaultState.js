@@ -24,5 +24,7 @@ export const defaultState = {
   searchErrorMessage: "",
   // for randomReducer.js
   randomAnimeIsLoading: true,
-  randomAnimeData: undefined
+  randomAnimeData: undefined,
+  randomMangaData: undefined,
+  randomMangaIsLoading: true,
 };
