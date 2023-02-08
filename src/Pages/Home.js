@@ -1,11 +1,11 @@
 import React from "react";
 import { Box } from "@mui/material";
-import Navbar from "../Components/Navbar";
-import AnimeHero from "../Components/AnimeHero";
-import AnimeDropdownBox from "../Components/AnimeDropdownBox";
-import AnimeContent from "../Components/AnimeContent";
-import ScrollToTop from "../Components/ScrollToTop";
-import Footer from "../Components/Footer";
+import Navbar from "../components/Navbar";
+import AnimeHero from "../components/AnimeHero";
+import AnimeDropdownBox from "../components/AnimeDropdownBox";
+import AnimeContent from "../components/AnimeContent";
+import ScrollToTop from "../components/ScrollToTop";
+import Footer from "../components/Footer";
 
 import { useSelector } from "react-redux";
 

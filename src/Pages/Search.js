@@ -1,10 +1,10 @@
 import React from "react";
 import { Box } from "@mui/material";
-import Navbar from "../Components/Navbar";
-import ScrollToTop from "../Components/ScrollToTop";
-import SearchBar from "../Components/SearchBar";
-import SearchContent from "../Components/SearchContent";
-import Footer from "../Components/Footer";
+import Navbar from "../components/Navbar";
+import ScrollToTop from "../components/ScrollToTop";
+import SearchBar from "../components/SearchBar";
+import SearchContent from "../components/SearchContent";
+import Footer from "../components/Footer";
 import { useSelector } from "react-redux";
 const Search = () => {
   const data = useSelector((state) => state);

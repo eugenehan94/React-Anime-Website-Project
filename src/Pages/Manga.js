@@ -1,11 +1,11 @@
 import React from "react";
 import { Box } from "@mui/material";
-import Navbar from "../Components/Navbar";
-import MangaHero from "../Components/MangaHero";
-import MangaDropdownBox from "../Components/MangaDropdownBox";
-import MangaContent from "../Components/MangaContent";
-import ScrollToTop from "../Components/ScrollToTop";
-import Footer from "../Components/Footer";
+import Navbar from "../components/Navbar";
+import MangaHero from "../components/MangaHero";
+import MangaDropdownBox from "../components/MangaDropdownBox";
+import MangaContent from "../components/MangaContent";
+import ScrollToTop from "../components/ScrollToTop";
+import Footer from "../components/Footer";
 const Manga = () => {
   return (
     <div>

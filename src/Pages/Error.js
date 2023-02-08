@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import Navbar from "../Components/Navbar";
+import Navbar from "../components/Navbar";
 import animeCryingImage from "../Images/animeCryingImage.png";
-import Footer from "../Components/Footer";
+import Footer from "../components/Footer";
 const Error = () => {
   return (
     <div>

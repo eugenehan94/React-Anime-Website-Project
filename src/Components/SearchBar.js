@@ -15,8 +15,8 @@ import {
   setSearchPending,
   setSearchErrorMessage,
 } from "../Redux/Actions/searchAction";
-import Loader from "../Components/Loader";
-import SwitchTo from "../Components/SwitchTo";
+import Loader from "../components/Loader";
+import SwitchTo from "../components/SwitchTo";
 import axios from "axios";
 const SearchBar = () => {
   const data = useSelector((state) => state);
