@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Box } from "@mui/material";
-import Loader from "../components/Loader";
-import Navbar from "../components/Navbar";
-import RandomHero from "../components/RandomHero";
+import Loader from "../components/loader/Loader";
+import Navbar from "../components/header/Navbar";
+import RandomHero from "../components/random/RandomHero";
 
 import {
   storeRandomAnime,

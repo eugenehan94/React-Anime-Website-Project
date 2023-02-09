@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { MANGA_CATEGORY_TITLE } from "../__helper/constants";
+import { MANGA_CATEGORY_TITLE } from "../../__helper/constants";
 import { Box, FormControl, Select, MenuItem, Typography } from "@mui/material";
 import {
   selectedDropdown,
   toggleMangaIsLoading,
-} from "../Redux/Actions/mangaActions";
+} from "../../Redux/Actions/mangaActions";
 const MangaDropdownBox = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();

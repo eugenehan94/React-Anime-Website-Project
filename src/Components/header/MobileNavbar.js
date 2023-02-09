@@ -7,7 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import ShuffleIcon from '@mui/icons-material/Shuffle';
 import { useSelector, useDispatch } from "react-redux";
-import { setMobileNavbarState } from "../Redux/Actions/mobileNavbarAction";
+import { setMobileNavbarState } from "../../Redux/Actions/mobileNavbarAction";
 
 const MobileNavbar = () => {
   const data = useSelector((state) => state);

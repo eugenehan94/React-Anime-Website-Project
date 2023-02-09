@@ -2,7 +2,7 @@ import React from "react";
 import { AppBar, Box, Grid, Toolbar, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setMobileNavbarState } from "../Redux/Actions/mobileNavbarAction";
+import { setMobileNavbarState } from "../../Redux/Actions/mobileNavbarAction";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MenuIcon from "@mui/icons-material/Menu";
 import MobileNavbar from "./MobileNavbar";

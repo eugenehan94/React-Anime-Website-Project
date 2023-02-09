@@ -11,63 +11,39 @@ import {
 import StarRateIcon from "@mui/icons-material/StarRate";
 import {
   selectedList,
-  toggleAnimeApiError,
-} from "../Redux/Actions/animeActions";
-import Loader from "./Loader";
-import animeCryingImage from "../Images/animeCryingImage.png";
+  toggleMangaApiError,
+} from "../../Redux/Actions/mangaActions";
+import Loader from "../loader/Loader";
+import animeCryingImage from "../../Images/animeCryingImage.png";
 import axios from "axios";
-
-const AnimeContent = () => {
+const MangaContent = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { animeSelectedCategory, animeList, animeIsLoading, animeApiError } =
-    data.animeReducer;
+  const { mangaSelectedCategory, mangaList, mangaIsLoading, mangaApiError } =
+    data.mangaReducer;
 
   useEffect(() => {
-    // Link to handling errors in axios async/await setup
-    // https://rapidapi.com/guides/axios-async-await
     const fetchChoice = async () => {
       try {
-        let response;
-        // New version of API (V4) separated categories into specific API calls base on query parameters.
-        if (
-          animeSelectedCategory === "tv" ||
-          animeSelectedCategory === "movie"
-        ) {
-          response = await axios.get(
-            `https://api.jikan.moe/v4/top/anime?type=${animeSelectedCategory}`
-          );
-        }
-        if (
-          animeSelectedCategory === "airing" ||
-          animeSelectedCategory === "upcoming"
-        ) {
-          response = await axios.get(
-            `https://api.jikan.moe/v4/top/anime?filter=${animeSelectedCategory}`
-          );
-        }
-        // const response = await axios.get(
-        //   `https://api.jikan.moe/v4/top/anime`
-        // );
-        dispatch(toggleAnimeApiError(false));
+        const response = await axios.get(
+          `https://api.jikan.moe/v4/top/manga?type=${mangaSelectedCategory}`
+        );
+        dispatch(toggleMangaApiError(false));
         dispatch(selectedList(response.data.data));
       } catch (errors) {
-        dispatch(toggleAnimeApiError(true));
+        dispatch(toggleMangaApiError(true));
       }
     };
     fetchChoice();
-  }, [animeSelectedCategory, dispatch]);
+  }, [mangaSelectedCategory, dispatch]);
 
-  if (animeIsLoading) {
-    return (
-      <Box sx={{ paddingTop: "1rem" }}>
-        <Loader />
-      </Box>
-    );
+  if (mangaIsLoading) {
+    return <Loader />;
   }
+
   return (
     <Box>
-      {animeApiError ? (
+      {mangaApiError ? (
         <>
           <Typography align="center" variant="h5">
             Sorry something went wrong
@@ -82,7 +58,7 @@ const AnimeContent = () => {
         </>
       ) : (
         <Grid container spacing={6}>
-          {animeList.map((item) => {
+          {mangaList.map((item) => {
             return (
               <Grid item xl={2} lg={3} md={4} sm={6} xs={12} key={item.mal_id}>
                 <Card
@@ -100,7 +76,6 @@ const AnimeContent = () => {
                     <div className="movie">
                       <CardMedia
                         component="img"
-                        // image={item.image_url}
                         image={item.images.jpg.image_url}
                         alt={item.title}
                         height="325"
@@ -113,29 +88,19 @@ const AnimeContent = () => {
                         <Typography gutterBottom>
                           {item.title.toUpperCase()}
                         </Typography>
-                        <Typography>Rank: {item.rank}</Typography>
+                        <Typography>
+                          {item.rank && <>Rank: {item.rank}</>}
+                        </Typography>
                         <Typography gutterBottom>
-                          Score:{" "}
-                          {item.score === 0 ? (
-                            " N/A"
-                          ) : (
+                          {item.score && (
                             <>
-                              {item.score}/10 <StarRateIcon fontSize="small" />
+                              Score: {item.score}/10{" "}
+                              <StarRateIcon fontSize="small" />
                             </>
                           )}
                         </Typography>
-                        {item.aired && (
-                          <Typography>
-                            Aired Date: {item.aired.string}
-                          </Typography>
-                        )}
                         <Typography>
-                          Episodes:{" "}
-                          {item.episodes === null ? (
-                            " Unknown"
-                          ) : (
-                            <>{item.episodes}</>
-                          )}
+                          {item.volumes && <>Volume(s): {item.volumes}</>}
                         </Typography>
                       </div>
                     </div>
@@ -150,4 +115,4 @@ const AnimeContent = () => {
   );
 };
 
-export default AnimeContent;
+export default MangaContent;

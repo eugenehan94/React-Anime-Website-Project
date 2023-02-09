@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Box, Switch, Stack, Typography } from "@mui/material/";
-import {queryTypeSelection} from "../Redux/Actions/fetchData"
+import {queryTypeSelection} from "../../Redux/Actions/fetchData"
 const SwitchTo = () => {
   // const data = useSelector((state) => state);
   const dispatch = useDispatch();

@@ -4,8 +4,8 @@ import { Box, FormControl, Select, MenuItem, Typography } from "@mui/material";
 import {
   selectedDropdown,
   toggleAnimeIsLoading,
-} from "../Redux/Actions/animeActions";
-import { ANIME_CATEGORY_TITLE } from "../__helper/constants";
+} from "../../Redux/Actions/animeActions";
+import { ANIME_CATEGORY_TITLE } from "../../__helper/constants";
 const AnimeDropdownBox = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();

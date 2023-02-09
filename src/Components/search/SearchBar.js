@@ -1,5 +1,5 @@
 import React from "react";
-import {SEARCH_TITLE} from "../__helper/constants";
+import {SEARCH_TITLE} from "../../__helper/constants";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
@@ -8,15 +8,15 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { queryResultsUpdate } from "../Redux/Actions/fetchData";
+import { queryResultsUpdate } from "../../Redux/Actions/fetchData";
 
 import {
   searchLoader,
   setSearchPending,
   setSearchErrorMessage,
-} from "../Redux/Actions/searchAction";
-import Loader from "../components/Loader";
-import SwitchTo from "../components/SwitchTo";
+} from "../../Redux/Actions/searchAction";
+import Loader from "../loader/Loader";
+import SwitchTo from "./SwitchTo";
 import axios from "axios";
 const SearchBar = () => {
   const data = useSelector((state) => state);

@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import demonSlayerHeroImage from "../Images/demonSlayerHeroImage.jpg";
+import demonSlayerHeroImage from "../../Images/demonSlayerHeroImage.jpg";
 
 const Hero = () => {
   return (
