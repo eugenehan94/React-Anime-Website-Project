@@ -1,9 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Box } from "@mui/material";
 import Loader from "../components/loader/Loader";
 import Navbar from "../components/header/Navbar";
-import RandomHero from "../components/random/RandomHero";
+import PagesPadding from "../components/_shared/PagesPadding";
+import RandomAnime from "../components/random/RandomAnime";
+import RandomManga from "../components/random/RandomManga";
+import Footer from "../components/footer/Footer";
+
+import { Box } from "@mui/material";
 
 import {
   storeRandomAnime,
@@ -25,9 +29,11 @@ const Random = () => {
         const response = await axios.get(
           `https://api.jikan.moe/v4/random/anime`
         );
-        const explicitContent = response.data.data.genres.find((genre) => genre.name === "Hentai")
+        const explicitContent = response.data.data.genres.find(
+          (genre) => genre.name === "Hentai"
+        );
         // Prevents explicit content from showing
-        if(explicitContent){
+        if (explicitContent) {
           fetchRandomAnime();
         }
         dispatch(storeRandomAnime(response.data.data));
@@ -41,9 +47,11 @@ const Random = () => {
         const response = await axios.get(
           `https://api.jikan.moe/v4/random/manga`
         );
-        const explicitContent = response.data.data.genres.find((genre) => genre.name === "Hentai")
+        const explicitContent = response.data.data.genres.find(
+          (genre) => genre.name === "Hentai"
+        );
         // Prevents explicit content from showing
-        if(explicitContent){
+        if (explicitContent) {
           fetchRandomManga();
         }
         dispatch(storeRandomManga(response.data.data));
@@ -59,20 +67,18 @@ const Random = () => {
   return (
     <div>
       <Navbar />
-      <Box
-        sx={{
-          paddingLeft: { xs: "1rem", sm: "2rem" },
-          paddingRight: { xs: "1rem", sm: "2rem" },
-          paddingTop: "2rem",
-          paddingBottom: "2rem",
-        }}
-      >
+      <PagesPadding>
         {randomAnimeIsLoading || randomMangaIsLoading ? (
           <Loader />
         ) : (
-          <RandomHero />
+          <>
+            <RandomAnime />
+            <Box sx={{ pb: "3rem"}}/>
+            <RandomManga />
+          </>
         )}
-      </Box>
+      </PagesPadding>
+      <Footer />
     </div>
   );
 };

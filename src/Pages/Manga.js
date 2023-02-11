@@ -1,7 +1,7 @@
 import React from "react";
-import { Box } from "@mui/material";
 import Navbar from "../components/header/Navbar";
 import MangaHero from "../components/manga/MangaHero";
+import PagesPadding from "../components/_shared/PagesPadding";
 import MangaDropdownBox from "../components/manga/MangaDropdownBox";
 import MangaContent from "../components/manga/MangaContent";
 import ScrollToTop from "../components/_shared/ScrollToTop";
@@ -11,17 +11,10 @@ const Manga = () => {
     <div>
       <Navbar />
       <MangaHero />
-      <Box
-        sx={{
-          paddingLeft: { xs: "1rem", sm: "4rem" },
-          paddingRight: { xs: "1rem", sm: "4rem" },
-          paddingTop: "2rem",
-          paddingBottom: "2rem",
-        }}
-      >
+      <PagesPadding>
         <MangaDropdownBox />
         <MangaContent />
-      </Box>
+      </PagesPadding>
       <Footer />
       <ScrollToTop />
     </div>

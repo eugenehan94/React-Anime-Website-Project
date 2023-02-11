@@ -1,7 +1,7 @@
 import React from "react";
-import { Box } from "@mui/material";
 import Navbar from "../components/header/Navbar";
 import AnimeHero from "../components/home/AnimeHero";
+import PagesPadding from "../components/_shared/PagesPadding";
 import AnimeDropdownBox from "../components/home/AnimeDropdownBox";
 import AnimeContent from "../components/home/AnimeContent";
 import ScrollToTop from "../components/_shared/ScrollToTop";
@@ -17,17 +17,10 @@ const Home = () => {
     <div>
       <Navbar />
       <AnimeHero />
-      <Box
-        sx={{
-          paddingLeft: { xs: "1rem", sm: "4rem" },
-          paddingRight: { xs: "1rem", sm: "4rem" },
-          paddingTop: "2rem",
-          paddingBottom: "2rem",
-        }}
-      >
+      <PagesPadding>
         <AnimeDropdownBox />
         <AnimeContent />
-      </Box>
+      </PagesPadding>
       {animeIsLoading ? <></> : <Footer />}
       <ScrollToTop />
     </div>

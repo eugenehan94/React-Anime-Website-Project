@@ -53,11 +53,10 @@ const Navbar = () => {
                 alignItems="center"
               >
                 <Grid item>
-                  <Typography
-                    variant="h6"
-                    sx={{ flexGrow: 1, color: "#FF0000" }}
-                  >
-                    AniMan
+                  <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                    <Link to="/" className="home-link">
+                      AniMan
+                    </Link>
                   </Typography>
                 </Grid>
                 <Grid item>

@@ -1,8 +1,8 @@
 import React from "react";
-import { Box } from "@mui/material";
 import Navbar from "../components/header/Navbar";
 import ScrollToTop from "../components/_shared/ScrollToTop";
 import SearchBar from "../components/search/SearchBar";
+import PagesPadding from "../components/_shared/PagesPadding";
 import SearchContent from "../components/search/SearchContent";
 import Footer from "../components/footer/Footer";
 import { useSelector } from "react-redux";
@@ -17,16 +17,9 @@ const Search = () => {
         <></>
       ) : (
         <>
-          <Box
-            sx={{
-              paddingLeft: { xs: "1rem", sm: "4rem" },
-              paddingRight: { xs: "1rem", sm: "4rem" },
-              paddingTop: "2rem",
-              paddingBottom: "2rem",
-            }}
-          >
+          <PagesPadding>
             <SearchContent />
-          </Box>
+          </PagesPadding>
           <Footer />
         </>
       )}
