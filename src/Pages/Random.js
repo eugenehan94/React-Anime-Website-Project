@@ -25,6 +25,11 @@ const Random = () => {
         const response = await axios.get(
           `https://api.jikan.moe/v4/random/anime`
         );
+        const explicitContent = response.data.data.genres.find((genre) => genre.name === "Hentai")
+        // Prevents explicit content from showing
+        if(explicitContent){
+          fetchRandomAnime();
+        }
         dispatch(storeRandomAnime(response.data.data));
         dispatch(toggleRandomAnimeIsLoading(false));
       } catch (errors) {
@@ -36,7 +41,11 @@ const Random = () => {
         const response = await axios.get(
           `https://api.jikan.moe/v4/random/manga`
         );
-        console.log("manga response: ", response);
+        const explicitContent = response.data.data.genres.find((genre) => genre.name === "Hentai")
+        // Prevents explicit content from showing
+        if(explicitContent){
+          fetchRandomManga();
+        }
         dispatch(storeRandomManga(response.data.data));
         dispatch(toggleRandomMangaIsLoading(false));
       } catch (errors) {

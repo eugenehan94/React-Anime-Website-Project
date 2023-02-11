@@ -12,7 +12,6 @@ import { useSelector } from "react-redux";
 
 const RandomHero = () => {
   const data = useSelector((state) => state);
-  console.log("RandomHero data: ", data);
   const { randomAnimeData, randomMangaData } = data.randomReducer;
   const {
     aired,
@@ -39,7 +38,6 @@ const RandomHero = () => {
     status,
     type
   } = randomMangaData;
-  console.log("randomMangaData: ", randomMangaData);
   return (
     <Box>
       <Box>
