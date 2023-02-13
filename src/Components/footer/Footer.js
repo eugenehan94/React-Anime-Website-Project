@@ -40,8 +40,14 @@ const Footer = () => {
           </Link>
         </Typography>
         <Stack direction="row" spacing={2}>
-          <GitHubIcon onClick={() => openInNewTab("github")} />
-          <LinkedInIcon onClick={() => openInNewTab("linkedin")} />
+          <GitHubIcon
+            onClick={() => openInNewTab("github")}
+            sx={{ "&:hover": { cursor: "pointer" } }}
+          />
+          <LinkedInIcon
+            onClick={() => openInNewTab("linkedin")}
+            sx={{ "&:hover": { cursor: "pointer" } }}
+          />
         </Stack>
       </Stack>
     </Box>
