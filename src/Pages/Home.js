@@ -7,11 +7,7 @@ import AnimeContent from "../components/home/AnimeContent";
 import ScrollToTop from "../components/_shared/ScrollToTop";
 import Footer from "../components/footer/Footer";
 
-import { useSelector } from "react-redux";
-
 const Home = () => {
-  const data = useSelector((state) => state);
-  const { animeIsLoading } = data.animeReducer;
 
   return (
     <div>
@@ -21,7 +17,7 @@ const Home = () => {
         <AnimeDropdownBox />
         <AnimeContent />
       </PagesPadding>
-      {animeIsLoading ? <></> : <Footer />}
+      <Footer/>
       <ScrollToTop />
     </div>
   );
