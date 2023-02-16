@@ -3,6 +3,7 @@ import React from "react";
 import {
   Box,
   Card,
+  CardActionArea,
   CardContent,
   CardMedia,
   Grid,
@@ -25,6 +26,7 @@ const RandomHero = () => {
     source,
     synopsis,
     trailer,
+    url
   } = randomAnimeData;
 
   return (
@@ -41,12 +43,14 @@ const RandomHero = () => {
         <Grid container spacing={1}>
           <Grid item md={3}>
             <Card>
-              <CardMedia
-                component="img"
-                alt=""
-                height="400px"
-                image={images.jpg.image_url}
-              />
+              <CardActionArea href={url} target="_blank" rel="noreferrer">
+                <CardMedia
+                  component="img"
+                  alt=""
+                  height="400px"
+                  image={images.jpg.image_url}
+                />
+              </CardActionArea>
             </Card>
           </Grid>
           <Grid item md={9}>

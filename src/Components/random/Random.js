@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Loader from "../../components/loader/Loader";
+import RandomAnime from "../../components/random/RandomAnime";
+import RandomManga from "../../components/random/RandomManga";
 import {
   storeRandomAnime,
   toggleRandomAnimeIsLoading,
   storeRandomManga,
   toggleRandomMangaIsLoading,
-} from "../Redux/Actions/randomActions";
+} from "../../Redux/Actions/randomActions";
+
+import { Box } from "@mui/material";
+
+import axios from "axios";
 
 const Random = () => {
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
   const { randomAnimeIsLoading, randomMangaIsLoading } = data.randomReducer;
-  // const { randomAnimeIsLoading } = randomAnimeData;
   useEffect(() => {
     const fetchRandomAnime = async () => {
       try {
@@ -54,15 +60,10 @@ const Random = () => {
   }, [dispatch]);
   return (
     <>
-      {randomAnimeIsLoading || randomMangaIsLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <RandomAnime />
-          <Box sx={{ pb: "3rem" }} />
-          <RandomManga />
-        </>
-      )}
+      {randomAnimeIsLoading ? <Loader /> : <RandomAnime />}
+
+      <Box sx={{ pb: "3rem" }} />
+      {randomMangaIsLoading ? <Loader /> : <RandomManga />}
     </>
   );
 };
