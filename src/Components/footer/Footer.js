@@ -5,10 +5,15 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const openInNewTab = (link) => {
-  console.log("link: ", link);
+  let url;
   if (link === "github") {
+    url = "https://github.com/eugenehan94/React-Anime-Website-Project";
   }
   if (link === "linkedin") {
+    url = "http://www.linkedin.com/in/eugene-h-7928bb63";
+  }
+  if (url) {
+    window.open(`${url}`, "_target", "noreferrer");
   }
 };
 
