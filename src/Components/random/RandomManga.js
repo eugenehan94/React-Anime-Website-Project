@@ -2,6 +2,7 @@ import React from "react";
 import {
   Box,
   Card,
+  CardActionArea,
   CardContent,
   CardMedia,
   Grid,
@@ -14,16 +15,18 @@ const RandomManga = () => {
   const { randomMangaData } = data.randomReducer;
   const {
     authors,
-    images: mangaImages,
-    title: mangaTitle,
-    title_japanese: mangaJapaneseTitle,
-    synopsis: mangaSynopsis,
-    rank: mangaRank,
+    images,
+    title,
+    title_japanese,
+    synopsis,
+    rank,
     published,
     volumes,
     status,
     type,
+    url,
   } = randomMangaData;
+  console.log("randomMangaData: ", randomMangaData);
   return (
     <Box>
       <Typography
@@ -37,36 +40,39 @@ const RandomManga = () => {
       <Grid container spacing={1}>
         <Grid item md={3}>
           <Card>
-            <CardMedia
-              component="img"
-              alt=""
-              height="400px"
-              image={mangaImages.jpg.image_url}
-            />
+            <CardActionArea href={url} target="_blank" rel="noreferrer">
+              <CardMedia
+                component="img"
+                alt=""
+                height="400px"
+                image={images.jpg.image_url}
+              />
+            </CardActionArea>
           </Card>
         </Grid>
         <Grid item md={9}>
           <Typography variant="h4" gutterBottom>
-            {mangaTitle} ({mangaJapaneseTitle})
+            {title}{" "}
+            {title_japanese ? <span>{`(${title_japanese})`}</span> : null}
           </Typography>
           <Typography variant="h4" gutterBottom>
             Author(s): {authors.map((author) => author.name)}
           </Typography>
-          {mangaSynopsis && (
+          {synopsis && (
             <Box>
               <Typography variant="h4">Synopsis</Typography>
-              <Typography gutterBottom>{mangaSynopsis}</Typography>
+              <Typography gutterBottom>{synopsis}</Typography>
             </Box>
           )}
 
           <Typography variant="h4">More Information</Typography>
           <Grid container spacing={2} sx={{ marginBottom: "0.8rem" }}>
-            {mangaRank ? (
+            {rank ? (
               <Grid item xs={12} sm={6} lg={2}>
                 <Card sx={{ backgroundColor: "#363846" }}>
                   <CardContent>
                     <Typography>Rank</Typography>
-                    <Typography>{mangaRank}</Typography>
+                    <Typography>{rank}</Typography>
                   </CardContent>
                 </Card>
               </Grid>

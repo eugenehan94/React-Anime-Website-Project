@@ -5,7 +5,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
-import ShuffleIcon from '@mui/icons-material/Shuffle';
+import ShuffleIcon from "@mui/icons-material/Shuffle";
 import { useSelector, useDispatch } from "react-redux";
 import { setMobileNavbarState } from "../../Redux/Actions/mobileNavbarAction";
 
@@ -160,7 +160,8 @@ const MobileNavbar = () => {
             backgroundColor: "rgba(255,255,255,0.2)",
           }}
         />
-        <Typography align="center">AniMan Developed by</Typography>
+        <Typography align="center">AniMan</Typography>
+        <Typography align="center">Developed by</Typography>
         <Typography
           align="center"
           onClick={() => {

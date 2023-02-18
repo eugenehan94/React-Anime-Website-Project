@@ -18,6 +18,7 @@ const openInNewTab = (link) => {
 };
 
 const Footer = () => {
+  const date = new Date();
   return (
     <Box
       sx={{
@@ -33,13 +34,16 @@ const Footer = () => {
         sx={{ paddingBottom: "1.5rem" }}
       >
         <Typography align="center">
+          ©{date.getFullYear()} AniMan. All Rights Reserved.
+        </Typography>
+        <Typography align="center">
           Developed by{" "}
           <Link
             href="https://eugenehan.netlify.app/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener, noreferrer"
             color="text.primary"
-            underline="hover"
+            underline="always"
           >
             Eugene Han
           </Link>

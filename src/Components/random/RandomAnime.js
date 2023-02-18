@@ -26,7 +26,7 @@ const RandomHero = () => {
     source,
     synopsis,
     trailer,
-    url
+    url,
   } = randomAnimeData;
 
   return (
@@ -55,7 +55,8 @@ const RandomHero = () => {
           </Grid>
           <Grid item md={9}>
             <Typography variant="h4" gutterBottom>
-              {title} ( {title_japanese})
+              {title}{" "}
+              {title_japanese ? <span>{`(${title_japanese})`}</span> : null}
             </Typography>
             {synopsis && (
               <Box>

@@ -61,7 +61,6 @@ const Random = () => {
   return (
     <>
       {randomAnimeIsLoading ? <Loader /> : <RandomAnime />}
-
       <Box sx={{ pb: "3rem" }} />
       {randomMangaIsLoading ? <Loader /> : <RandomManga />}
     </>
